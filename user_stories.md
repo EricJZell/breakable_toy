@@ -77,3 +77,64 @@ Acceptance Criteria:
 - I must be logged in
 - I must only be able to delete my own entries
 - I must receive a success message and be brought to the entries index page on success
+
+As an authenticated user
+I want to add photos to an entry
+So that it provides more detail about the session
+Acceptance Criteria:
+- I must be logged in
+- I must only be able to add photos to my own entries
+- I must be able to view photos from the journal entry's details page
+
+As a user
+I want to view a list of locations
+Where swell model data is available
+- I must see region, country, and spot name
+- I must be able to search for specific locations
+
+As an authenticated user
+I want to be able to favorite locations
+So that  I can access their information more easily
+- I must be logged in
+- I must provide valid location information
+- A link to location details must be shown on my profile home page
+- A brief location forecast must be shown on my profile home page
+
+As an authenticated user
+I want to be able to add friends who are also users
+So that I can follow their journal entries
+- I must be logged in
+- I must be able to send a friend request to another user
+- My request must be accepted by the other user before we are friends
+
+As an authenticated user
+I want to be able to 'like' friends journal entries
+So that they know that I like what they're up to
+- I must be logged in
+- I must be friends with the user whos content I want to like
+- My like must be added to the total number of likes for that journal entry
+
+As an authenticated admin
+I want to view a list of users
+So that I can see all users and delete accounts
+Acceptance Criteria:
+- I must see a list of users
+- I must see the option to delete users from the list
+- Non-admin users cannot access this page
+
+As an authenticated admin
+I want to delete a user account
+So that I can remove unwanted users or inactive accounts
+Acceptance Criteria:
+- I must be signed in as an admin
+- The user I choose to delete must be deleted from the database
+- I must be notified that the deletion was successful
+- I will be redirected to the list of users
+
+As an authenticated admin
+I want to delete user's content
+So that I can remove unwanted, inappropriate, or obsolete material
+Acceptance Criteria:
+- I must be signed in as an admin
+- The review must be deleted from the database
+- I must be notified that my deletion was successful
