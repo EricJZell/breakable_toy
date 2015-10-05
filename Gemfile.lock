@@ -181,14 +181,11 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (3.0.0)
       activesupport (>= 4.0.0)
-<<<<<<< HEAD
-=======
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
->>>>>>> 53d826dbb33cf7171040d460f12771aab6827235
     slop (3.6.0)
     spring (1.4.0)
     sprockets (3.3.5)
@@ -237,11 +234,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg
-<<<<<<< HEAD
-  pry
-=======
   pry-rails
->>>>>>> 53d826dbb33cf7171040d460f12771aab6827235
   rails (= 4.2.4)
   rspec-rails
   sass-rails (~> 5.0)
