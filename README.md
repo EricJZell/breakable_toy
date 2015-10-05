@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)![Code Climate](https://codeclimate.com/github/EricJZell/breakable_toy.png) ![Coverage Status](https://coveralls.io/repos/EricJZell/breakable_toy/badge.png)
+![Build Status](https://codeship.com/projects/16564460-4da4-0133-b3dd-6e1cce453881/status?branch=master)![Code Climate](https://codeclimate.com/github/EricJZell/breakable_toy.png) ![Coverage Status](https://coveralls.io/repos/EricJZell/breakable_toy/badge.png)
 
 == README
 
