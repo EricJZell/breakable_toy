@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/16564460-4da4-0133-b3dd-6e1cce453881/status?branch=master)![Code Climate](https://codeclimate.com/github/EricJZell/swell_journal.png) ![Coverage Status](https://coveralls.io/repos/EricJZell/swell_journal/badge.png)
+![Build Status](https://codeship.com/projects/550d4800-4dda-0133-3ceb-524cf6105349/status?branch=master)![Code Climate](https://codeclimate.com/github/EricJZell/swell_journal.png) ![Coverage Status](https://coveralls.io/repos/EricJZell/swell_journal/badge.png)
 
 == README
 
