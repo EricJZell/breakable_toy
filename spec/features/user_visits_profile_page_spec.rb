@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user visits profile page', %Q{
+feature 'user visits profile page', %{
   As an authenticated user
   I want to view my profile page
   So that I can see how it looks
