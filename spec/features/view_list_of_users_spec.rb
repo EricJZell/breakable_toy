@@ -16,7 +16,7 @@ feature 'user visits profile page', %{
     visit root_path
     click_link 'Search Users'
     expect(current_path).to eq("/users")
-    expect(page).to have_content(user1.email)
-    expect(page).to have_content(user2.email)
+    expect(page).to have_content(user1.user_name)
+    expect(page).to have_content(user2.user_name)
   end
 end
