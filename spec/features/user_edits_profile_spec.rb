@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user edits profile', %Q{
+feature 'user edits profile', %{
   As a visitor
   I want to edit my profile
   So that I can keep it up to date
