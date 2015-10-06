@@ -18,6 +18,7 @@ feature 'user edits profile', %Q{
     root_photo = "#{Rails.root}/spec/support/images/example_photo.png"
     attach_file "Profile Photo", root_photo
     click_button 'Update'
+    user = User.last
     expect(page).to have_content('Your account has been updated successfully.')
     expect(page).to have_content('Sign Out')
     expect(page).to have_css("img[src*='example_photo.png']")
@@ -29,6 +30,6 @@ feature 'user edits profile', %Q{
     visit edit_user_registration_path
     click_button 'Update'
     expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('updated successfully')
   end
 end
