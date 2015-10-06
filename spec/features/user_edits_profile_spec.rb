@@ -16,6 +16,7 @@ feature 'user edits profile', %{
     visit edit_user_registration_path
     fill_in 'Current password', with: user.password
     root_photo = "#{Rails.root}/spec/support/images/example_photo.png"
+    fill_in 'User Name', with: 'Anthony'
     attach_file "Profile Photo", root_photo
     click_button 'Update'
     user = User.last
