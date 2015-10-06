@@ -131,3 +131,7 @@ countries = [
   'Bali + Lombok', 'Java', 'Maluku Islands', 'Nusa Tenggara',
   'Sumatra + Mentawais'
 ]
+
+countries.each do |country|
+  Country.create(region: region, name: country)
+end
