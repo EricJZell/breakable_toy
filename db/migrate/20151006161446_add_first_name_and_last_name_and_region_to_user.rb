@@ -5,5 +5,4 @@ class AddFirstNameAndLastNameAndRegionToUser < ActiveRecord::Migration
     add_column :users, :region, :string
     add_column :users, :user_name, :string, null: false
   end
-
 end
