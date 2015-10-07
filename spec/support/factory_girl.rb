@@ -8,4 +8,22 @@ FactoryGirl.define do
     sequence(:user_name) { |n| "Tony#{n}" }
   end
 
+  factory :region do
+    name 'Europe'
+  end
+
+  factory :country do
+    name 'Azores'
+    region
+  end
+
+  factory :location do
+    name 'Agua de Alto'
+    country
+    msw_id 3842
+    lat 37.7163
+    lon -25.4736
+    msw_url "/Agua-de-Alto-Surf-Report/3842/"
+  end
+
 end
