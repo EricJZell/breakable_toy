@@ -2,18 +2,18 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :user do
-    sequence(:email) {|n| "user#{n}@example.com" }
+    sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
     sequence(:user_name) { |n| "Tony#{n}" }
   end
 
   factory :region do
-    sequence(:name) {|n| "Europe#{n}"}
+    sequence(:name) { |n| "Europe#{n}" }
   end
 
   factory :country do
-    sequence(:name) {|n| "Azores#{n}"}
+    sequence(:name) { |n| "Azores#{n}" }
     region
   end
 
@@ -27,7 +27,7 @@ FactoryGirl.define do
   end
 
   factory :entry do
-    sequence(:title) { |n| "Wicked good #{n}"}
+    sequence(:title) { |n| "Wicked good #{n}" }
     user
     location
     country
