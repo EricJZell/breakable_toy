@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   validates :user_name, presence: true
   validates :user_name, uniqueness: true
   has_many :entries, dependent: :destroy
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

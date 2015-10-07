@@ -26,4 +26,13 @@ FactoryGirl.define do
     msw_url "/Agua-de-Alto-Surf-Report/3842/"
   end
 
+  factory :entry do
+    sequence(:title) { |n| "Wicked good #{n}"}
+    user
+    location_id 1
+    country_id 1
+    region_id 1
+    date '10-12-2015'
+  end
+
 end
