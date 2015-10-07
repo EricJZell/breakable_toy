@@ -7,4 +7,5 @@ class Location < ActiveRecord::Base
   validates :msw_url, presence: true
   validates :msw_id, uniqueness: true
   belongs_to :country
+  has_many :entries
 end
