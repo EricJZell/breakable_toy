@@ -6,9 +6,9 @@ feature 'view journal entry details', %{
   So that I can see more about it
 
   # Acceptance Criteria
-  [] I must be signed in
-  [] I must be able to navigate there from the user profile page
-  [] I must see the entry location, date, and body
+  [x] I must be signed in
+  [x] I must be able to navigate there from the user profile page
+  [x] I must see the entry location, date, and body
 
 } do
   let!(:user) { FactoryGirl.create(:user) }
