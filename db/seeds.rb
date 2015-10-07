@@ -39,7 +39,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -70,7 +69,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -102,7 +100,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -132,7 +129,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -161,7 +157,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -192,7 +187,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -221,11 +215,9 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
-
 
 region = Region.find_by(name: 'Middle East')
 
@@ -250,11 +242,9 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
-
 
 region = Region.find_by(name: 'Asia')
 
@@ -280,7 +270,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -309,7 +298,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -338,7 +326,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
@@ -367,7 +354,6 @@ countries.each do |country, id|
     )
     if location.valid?
       location.save
-    else
     end
   end
 end
