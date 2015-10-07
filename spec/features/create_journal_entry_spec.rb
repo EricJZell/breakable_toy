@@ -28,4 +28,13 @@ feature 'user creates journal entry', %{
     expect(page).to have_content('New journal entry created!')
   end
 
+  scenario 'User does not provide required entry information' do
+    sign_in(user)
+    click_link 'New Journal Entry'
+    click_button 'Create Entry'
+    expect(page).to have_content('Title can\'t be blank')
+    expect(page).to have_content('Date can\'t be blank')
+  end
+
+
 end
