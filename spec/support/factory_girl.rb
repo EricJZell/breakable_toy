@@ -9,11 +9,11 @@ FactoryGirl.define do
   end
 
   factory :region do
-    name 'Europe'
+    sequence(:name) {|n| "Europe#{n}"}
   end
 
   factory :country do
-    name 'Azores'
+    sequence(:name) {|n| "Azores#{n}"}
     region
   end
 
@@ -29,9 +29,9 @@ FactoryGirl.define do
   factory :entry do
     sequence(:title) { |n| "Wicked good #{n}"}
     user
-    location_id 1
-    country_id 1
-    region_id 1
+    location
+    country
+    region
     date '10-12-2015'
   end
 
