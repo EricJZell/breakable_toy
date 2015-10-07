@@ -1,7 +1,19 @@
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <h4>@<%= user.user_name %></h4>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="small-8 columns">
+    <ul>
+      <% @users.each do |user| %>
+        <div class="row">
+          <li>
+            <div class="small-4 columns">
+              <%= image_tag(user.profile_photo) %>
+            </div>
+            <div class="small-8 columns">
+              <h4><%= link_to "@#{user.user_name}", user %></h4>
+              <h6>(<%=user.full_name%>)</h6>
+            </div>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -12,6 +12,13 @@
     High Charts n stuff
   </div>
   <div class="small-6 columns">
-    Jounal Entries index
+    <ul>
+      <% @entries.each do |entry| %>
+        <li>
+          <h4><%= entry.title %>: <%=entry.date %></h4>
+          <h6><%= "#{entry.location.name}, #{entry.country.name}, #{entry.region.name}"%></h6>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

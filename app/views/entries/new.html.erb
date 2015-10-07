@@ -28,7 +28,7 @@
 
     <div class="field">
       <%= f.label :location_id %>
-      <%= f.collection_select :location_id, Location.all.where(country: Country.find_by(name: 'Azores')), :id, :name %>
+      <%= f.collection_select :location_id, Location.all.where(country: Region.first.countries[0]), :id, :name %>
     </div>
 
     <div class="actions">
