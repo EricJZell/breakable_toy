@@ -11,7 +11,7 @@ feature 'user views journal entries index', %{
 
 } do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:entry) { FactoryGirl.create(:entry, user: user)}
+  let!(:entry) { FactoryGirl.create(:entry, user: user) }
   scenario 'user views their own profile page' do
     sign_in(user)
     expect(page).to have_content(user.entries[0].title)
