@@ -13,11 +13,16 @@ feature 'view journal entry details', %{
 } do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:entry) { FactoryGirl.create(:entry, user: user) }
-  scenario 'user views their own profile page' do
+  scenario 'signed in user views details' do
     sign_in(user)
     click_link entry.title
     expect(page).to have_content(entry.body)
     expect(page).to have_content(entry.date)
     expect(page).to have_content(entry.location.name)
+  end
+  scenario 'non-user views page' do
+    visit users_path(user)
+    click_link entry.title
+    expect(page).to have_content('You need to sign in')
   end
 end
