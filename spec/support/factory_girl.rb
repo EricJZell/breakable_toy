@@ -33,6 +33,7 @@ FactoryGirl.define do
     country
     region
     date '10-12-2015'
+    body 'yewwww'
   end
 
 end

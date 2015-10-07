@@ -15,7 +15,7 @@
     <ul>
       <% @entries.each do |entry| %>
         <li>
-          <h4><%= entry.title %>: <%=entry.date %></h4>
+          <h4><%= link_to entry.title, user_entry_path(@user, entry) %>: <%=entry.date %></h4>
           <h6><%= "#{entry.location.name}, #{entry.country.name}, #{entry.region.name}"%></h6>
         </li>
       <% end %>

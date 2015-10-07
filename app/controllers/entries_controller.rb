@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_user!
   def show
-    @entry = entry.find(params[:id])
+    @entry = Entry.find(params[:id])
+    @user = @entry.user
   end
 
   def new
