@@ -20,8 +20,9 @@ feature 'view journal entry details', %{
     expect(page).to have_content(entry.date)
     expect(page).to have_content(entry.location.name)
   end
+
   scenario 'non-user views page' do
-    visit users_path(user)
+    visit user_path(user)
     click_link entry.title
     expect(page).to have_content('You need to sign in')
   end
