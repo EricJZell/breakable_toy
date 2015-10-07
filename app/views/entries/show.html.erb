@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="small-4 columns">
+    <%= image_tag(@user.profile_photo) %>
+    <h4>@<%= @user.user_name %></h4>
+  </div>
+  <div class="small-8 columns">
+    <h3><%= @entry.title %></h3>
+    <h6><%= "#{@entry.date}, #{@entry.location.name}, #{@entry.country.name}, #{@entry.region.name}"%></h6>
+    Swell data
+  </div>
+</div>
+<div class="row">
+  <div class="small-6 columns">
+    Photos
+    Map
+  </div>
+  <div class="small-6 columns">
+
+    <p><%= @entry.body %></p>
+  </div>
+</div>

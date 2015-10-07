@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   def show
-    @entry = entry.find(params[:id])
+    @entry = Entry.find(params[:id])
+    @user = @entry.user
   end
 
   def new
