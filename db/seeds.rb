@@ -24,7 +24,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -54,7 +56,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -85,7 +89,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -114,7 +120,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -142,7 +150,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -172,7 +182,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -200,7 +212,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -227,7 +241,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -255,7 +271,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -283,7 +301,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -311,7 +331,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
@@ -339,7 +361,9 @@ countries = {
 
 countries.each do |country, id|
   new_country = Country.create(region: region, name: country)
-  page = Nokogiri::HTML(open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/"))
+  page = Nokogiri::HTML(
+    open("http://magicseaweed.com/#{country}-Surf-Forecast/#{id}/")
+  )
   data = page.css('.msw-map')[0].attr('data-collection')
   spots = JSON.parse(data)
   spots.each do |spot|
