@@ -36,5 +36,4 @@ feature 'user creates journal entry', %{
     expect(page).to have_content('Date can\'t be blank')
   end
 
-
 end
