@@ -19,7 +19,6 @@ class EntriesController < ApplicationController
       flash[:warning] = @entry.errors.full_messages.join(', ')
       render :new
     end
-
   end
 
   protected

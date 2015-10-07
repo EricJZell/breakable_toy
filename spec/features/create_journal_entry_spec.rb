@@ -18,7 +18,6 @@ feature 'user creates journal entry', %{
   scenario 'authenticated user creates entry' do
     sign_in(user)
     click_link 'New Journal Entry'
-    save_and_open_page
     select location.country.region.name, from: 'Region'
     select location.country.name, from: 'Country'
     select location.name, from: 'Location'
