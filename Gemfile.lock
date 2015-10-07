@@ -353,7 +353,9 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  json
   launchy
+  nokogiri
   pg
   pry-rails
   rails (= 4.2.4)

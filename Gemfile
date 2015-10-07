@@ -14,6 +14,8 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'dotenv-rails'
+gem 'nokogiri'
+gem 'json'
 
 group :development, :test do
   gem 'byebug'
