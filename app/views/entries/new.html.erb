@@ -18,12 +18,12 @@
 
     <div class="field">
       <%= f.label :region_id %>
-      <%= f.collection_select :region_id, Region.all, :id, :name %>
+      <%= f.collection_select :region_id, @regions, :id, :name, {}, {id:'region-select'} %>
     </div>
 
     <div class="field">
       <%= f.label :country_id %>
-      <%= f.collection_select :country_id, Country.where(region: Region.first), :id, :name %>
+      <%= f.collection_select :country_id, @countries, :id, :name %>
     </div>
 
     <div class="field">

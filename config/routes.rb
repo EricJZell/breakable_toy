@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :entries, only: [:new, :create, :show]
   end
+  get 'locations/update_countries' 
 end

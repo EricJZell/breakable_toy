@@ -8,6 +8,8 @@ class EntriesController < ApplicationController
   def new
     @entry = Entry.new
     @user = User.find(params[:user_id])
+    @regions = Region.all
+    @countries = Country.where("region_id = ?", Region.first.id)
   end
 
   def create
