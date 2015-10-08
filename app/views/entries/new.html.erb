@@ -1,38 +1,40 @@
 <div class="row">
-  <h4>Create a new entry</h4>
-  <%= form_for [@user, @entry] do |f| %>
-    <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title%><br />
-    </div>
+  <div class="small-10 small-centered columns">
+    <h4>Create a new entry</h4>
+    <%= form_for [@user, @entry] do |f| %>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title%><br />
+      </div>
 
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body %><br />
-    </div>
+      <div class="field">
+        <%= f.label :body %>
+        <%= f.text_area :body %><br />
+      </div>
 
-    <div class="field">
-      <%= f.label :date %>
-      <%= f.text_field :date %><br />
-    </div>
+      <div class="field">
+        <%= f.label :date %>
+        <%= f.text_field :date %><br />
+      </div>
 
-    <div class="field">
-      <%= f.label :region_id %>
-      <%= f.collection_select :region_id, @regions, :id, :name, {}, {id:'region-select'} %>
-    </div>
+      <div class="field">
+        <%= f.label :region_id %>
+        <%= f.collection_select :region_id, @regions, :id, :name, {}, {id:'region-select'} %>
+      </div>
 
-    <div class="field">
-      <%= f.label :country_id %>
-      <%= f.collection_select :country_id, @countries, :id, :name %>
-    </div>
+      <div class="field">
+        <%= f.label :country_id %>
+        <%= f.collection_select :country_id, @countries, :id, :name, {}, {id:'country-select'} %>
+      </div>
 
-    <div class="field">
-      <%= f.label :location_id %>
-      <%= f.collection_select :location_id, Location.all.where(country: Region.first.countries[0]), :id, :name %>
-    </div>
+      <div class="field">
+        <%= f.label :location_id %>
+        <%= f.collection_select :location_id, Location.all.where(country: Region.first.countries[0]), :id, :name, {}, {id:'location-select'} %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Create Entry" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.submit "Create Entry", class:"button" %>
+      </div>
+    <% end %>
+  </div>
 </div>

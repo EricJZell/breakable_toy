@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-  def update_countries
-    binding.pry
+  def index
+    @locations = Country.find(params[:country_id]).locations
+    render json: { locations: @locations }
   end
 end
