@@ -1,4 +1,4 @@
-$("#region-select").on("change", function(event) {
+$("#region-select").on("change", function() {
   //alert('We made it here');
   var request = $.ajax({
     method: "GET",
@@ -15,7 +15,7 @@ $("#region-select").on("change", function(event) {
   });
 });
 
-$("#country-select").on("change", function(event) {
+$("#country-select").on("change", function() {
   var request = $.ajax({
     method: "GET",
     url: "/locations",
