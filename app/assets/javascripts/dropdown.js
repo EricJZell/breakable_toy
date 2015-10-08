@@ -9,7 +9,7 @@ $("#region-select").on("change", function() {
   request.success(function(data) {
     $("#country-select").empty();
     for (var i = 0; i < data.countries.length; i++){
-      $("#country-select").append("<option value="+data.countries[i].id+">"+data.countries[i].name+"</option>")
+      $("#country-select").append("<option value="+data.countries[i].id+">"+data.countries[i].name+"</option>");
     }
     $("#location-select").empty();
   });
@@ -25,7 +25,7 @@ $("#country-select").on("change", function() {
   request.success(function(data) {
     $("#location-select").empty();
     for (var i = 0; i < data.locations.length; i++){
-      $("#location-select").append("<option value="+data.locations[i].id+">"+data.locations[i].name+"</option>")
+      $("#location-select").append("<option value="+data.locations[i].id+">"+data.locations[i].name+"</option>");
     }
   });
 });
