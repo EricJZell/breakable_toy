@@ -71,7 +71,7 @@ function initialize() {
       featureType: "water",
       elementType: "labels",
       stylers: [
-        { color: '#ffffff' },
+        { color: "#ffffff" },
         { weight: 0.1}
       ]
     }
