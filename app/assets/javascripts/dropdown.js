@@ -65,7 +65,7 @@ function initialize() {
       featureType: "water",
       elementType: "geometry",
       stylers: [
-        { color: '#0e1525' }
+        { color: "#0e1525" }
       ]
     },{
       featureType: "water",
