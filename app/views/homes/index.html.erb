@@ -1,8 +1,26 @@
 <div class="home-page">
   <div class="row">
     <div class="small-10 medium-6 small-centered columns welcome">
-      <h1 class="home-font">Swell</h1>
-      <h1 class="home-font">Journal</h1>
+      <h1 class="home-font">SWELL</h1>
+      <h1 class="home-font">JOURNAL</h1>
+      <% if current_user %>
+        <h6 class='home-font'><%="Welcome back @#{current_user.user_name}!"%></h6>
+      <% else %>
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <%= f.label :email, class:'home-form' %>
+              <%= f.text_field :email %>
+              <%= f.label :password, class:'home-form' %>
+              <%= f.password_field :password %>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, class:'home-form' %>
+              <%= f.submit 'Sign in' %>
+              <%= link_to "Forgot your password?", new_password_path(:user), class:'home-form' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
