@@ -1,6 +1,6 @@
 <div class="row top-profile">
   <div class="small-4 columns">
-    <%= image_tag(@user.profile_photo) %>
+    <%= image_tag(@user.profile_photo, id:'profile-photo') %>
     <h4>@<%= @user.user_name %></h4>
   </div>
   <div class="small-8 columns">
@@ -26,7 +26,10 @@
 </div>
 <div class="row">
   <div class="small-6 columns">
-    High Charts n stuff
+    <div id="map-container">
+      <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq} do %>
+      <% end %>
+    </div>
   </div>
   <div class="small-6 columns">
     <ul>
