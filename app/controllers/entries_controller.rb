@@ -3,6 +3,8 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @user = @entry.user
+    @photos = @entry.photos
+    @photo = Photo.new
   end
 
   def new
