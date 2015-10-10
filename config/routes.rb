@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :entries, only: [:new, :create, :show]
   end
+  resources :entries, only: [:new, :create, :show] do
+    resources :photos, only: [:create]
+  end
   resources :locations, only: [:index]
   resources :countries, only: [:index]
+
 end
