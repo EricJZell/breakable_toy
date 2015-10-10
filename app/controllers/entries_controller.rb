@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @user = @entry.user
     @entry.destroy
+    flash[:success] = "Journal Entry Deleted!"
     redirect_to user_path(@user)
   end
 

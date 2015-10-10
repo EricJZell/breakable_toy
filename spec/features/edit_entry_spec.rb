@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user adds photo to entry', %{
+feature 'user edits an entry', %{
   As a user
   I want to edit my entries
   So that I can make them more accurate or update information
