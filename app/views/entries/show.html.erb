@@ -6,6 +6,12 @@
   <div class="small-8 columns">
     <h3><%= @entry.title %></h3>
     <h6><%= "#{@entry.date}, #{@entry.location.name}, #{@entry.country.name}, #{@entry.region.name}"%></h6>
+    <% if current_user == @user %>
+      <h6>
+        <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
+        <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
+      </h6>
+    <% end %>
     Swell data
   </div>
 </div>

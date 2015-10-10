@@ -7,5 +7,5 @@ class Entry < ActiveRecord::Base
   belongs_to :location
   belongs_to :country
   belongs_to :region
-  has_many :photos
+  has_many :photos, dependent: :destroy
 end

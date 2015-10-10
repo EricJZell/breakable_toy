@@ -8,10 +8,11 @@ feature 'user adds photo to entry', %{
   Acceptance Criteria:
   [x] I must be signed in
   [x] I must be on the show page of one of my entries
+  [x] I must choose a file
   [x] I must be provided with a success message on successful upload
 } do
   let!(:entry) { FactoryGirl.create(:entry) }
-  scenario 'provide valid update information' do
+  scenario 'provide valid file' do
     user = entry.user
     sign_in(user)
     click_link entry.title
@@ -21,5 +22,13 @@ feature 'user adds photo to entry', %{
     expect(page).to have_content('Photo successfully added')
     expect(page).to have_css("img[src*='example_photo.png']")
     expect(entry.photos[0].file_name.file.filename).to eq("example_photo.png")
+  end
+
+  scenario 'user does not choose file' do
+    user = entry.user
+    sign_in(user)
+    click_link entry.title
+    click_button 'Add Photo'
+    expect(page).to have_content('File name can\'t be blank')
   end
 end

@@ -25,6 +25,31 @@ class EntriesController < ApplicationController
     end
   end
 
+  def destroy
+    @entry = Entry.find(params[:id])
+    @user = @entry.user
+    @entry.destroy
+    redirect_to user_path(@user)
+  end
+
+  def edit
+    @entry = Entry.find(params[:id])
+    @user = @entry.user
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+    @user = current_user
+    @entry.user = @user
+    if @entry.update(entry_params)
+      flash[:success] = 'Journal Entry Updated!'
+      redirect_to user_entry_path(@user, @entry)
+    else
+      flash[:warning] = @entry.errors.full_messages.join(', ')
+      render :edit
+    end
+  end
+
   protected
 
   def entry_params
