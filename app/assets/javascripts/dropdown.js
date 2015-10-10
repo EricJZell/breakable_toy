@@ -32,10 +32,11 @@ $("#country-select").on("change", function() {
 
 function initialize() {
   var locations = $("#map-canvas").data("locations");
-  //debugger;
+  var center = $("#map-canvas").data("center");
+  var zoom = $("#map-canvas").data("zoom");
   var mapProp = {
-    center:{lat: 40, lng: 290},
-    zoom:1,
+    center:center,
+    zoom:zoom,
     backgroundColor: "#0e1525",
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
