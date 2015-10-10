@@ -11,7 +11,7 @@ feature 'user edits an entry', %{
   [x] I must be provided with a success message on successful upload
 } do
   let!(:entry) { FactoryGirl.create(:entry) }
-  scenario 'provide valid update information' do
+  scenario 'user provides valid update information' do
     user = entry.user
     location = entry.location
     sign_in(user)
@@ -27,6 +27,23 @@ feature 'user edits an entry', %{
     expect(page).to have_content('Journal Entry Updated!')
     expect(page).to have_content('wa-pash')
     expect(current_path).to eq(user_entry_path(user, entry))
+  end
+
+  scenario 'user provides invalid update information' do
+    user = entry.user
+    location = entry.location
+    sign_in(user)
+    click_link entry.title
+    click_link 'Edit Entry'
+    select location.country.region.name, from: 'region-select'
+    select location.country.name, from: 'country-select'
+    select location.name, from: 'location-select'
+    fill_in 'Date', with: ''
+    fill_in 'Title', with: ''
+    click_button 'Update Entry'
+    expect(page).to have_content('Date can\'t be blank')
+    expect(page).to have_content('Title can\'t be blank')
+    expect(page).to have_content('Fill out entry details below:')
   end
 
   scenario 'user cannot update another user entry' do
