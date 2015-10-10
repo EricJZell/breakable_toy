@@ -30,7 +30,7 @@
   </div>
   <div class="small-6 columns">
     <div id="map-container">
-      <%= content_tag :div, id: "map-canvas", data: {locations: [@entry.location], center: {lat: @entry.location.lat, lng: @entry.location.lon}, zoom: 6} do %>
+      <%= content_tag :div, id: "map-canvas", data: {locations: [@entry.location], center: {lat: @entry.location.lat, lng: @entry.location.lon}, zoom: 7} do %>
       <% end %>
     </div>
     <p><%= @entry.body %></p>
