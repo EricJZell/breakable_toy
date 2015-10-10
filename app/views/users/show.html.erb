@@ -27,7 +27,7 @@
 <div class="row">
   <div class="small-6 columns">
     <div id="map-container">
-      <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq} do %>
+      <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq, center: {lat: 0, lng: 0}, zoom: 1} do %>
       <% end %>
     </div>
   </div>

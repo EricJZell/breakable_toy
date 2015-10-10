@@ -12,7 +12,7 @@
         <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
       </h6>
     <% end %>
-    Swell data
+    <h6><%= link_to("Check out the current forcast for #{@entry.location.name}!", "http://magicseaweed.com/#{@entry.location.msw_url}", target: '_blank')%></h6>
   </div>
 </div>
 <div class="row">
@@ -29,7 +29,10 @@
     <% end %>
   </div>
   <div class="small-6 columns">
-
+    <div id="map-container">
+      <%= content_tag :div, id: "map-canvas", data: {locations: [@entry.location], center: {lat: @entry.location.lat, lng: @entry.location.lon}, zoom: 7} do %>
+      <% end %>
+    </div>
     <p><%= @entry.body %></p>
   </div>
 </div>
