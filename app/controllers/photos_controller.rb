@@ -9,7 +9,6 @@ class PhotosController < ApplicationController
       flash[:errors] = @photo.errors.full_messages.join('. ')
     end
     redirect_to @entry
-
   end
 
   protected
