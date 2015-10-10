@@ -81,3 +81,10 @@ function initialize() {
   map.setOptions({styles: styles});
 }
 google.maps.event.addDomListener(window, "load", initialize);
+
+$(".owl-carousel").owlCarousel({
+  navigation : true, // Show next and prev buttons
+  slideSpeed : 300,
+  paginationSpeed : 400,
+  singleItem:true
+});

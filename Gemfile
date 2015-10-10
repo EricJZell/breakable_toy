@@ -16,6 +16,7 @@ gem 'fog'
 gem 'dotenv-rails'
 gem 'nokogiri'
 gem 'json'
+gem 'owlcarousel-rails'
 
 group :development, :test do
   gem 'byebug'
