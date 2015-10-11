@@ -20,14 +20,14 @@
 @import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One);
 
 .home-page {
-  background: url("/assets/panama_lineup.jpg");
+  background: url("/assets/GOPR6452.JPG");
   background-size: cover;
   height: 100%;
   width: 100%;
 }
 
 .welcome {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid #ffffff;
   margin-top: 60px;
   padding: 0;
