@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require owl.carousel
 //= require foundation
+//= require highcharts/highcharts.js
 //= require_tree .
 
 
