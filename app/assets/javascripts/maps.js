@@ -15,7 +15,7 @@ function initialize() {
       map: map,
       title: "hello, world"
     });
-  };
+  }
   var styles = [
     {
       featureType: "road",

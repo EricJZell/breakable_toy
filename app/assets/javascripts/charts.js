@@ -1,7 +1,7 @@
 $(function () {
   var activityChart = $('#activity-chart');
-  var months = activityChart.data().months
-  var sessions = activityChart.data().sessions
+  var months = activityChart.data().months;
+  var sessions = activityChart.data().sessions;
   activityChart.highcharts({
     chart: {
       type: 'column'

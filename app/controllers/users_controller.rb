@@ -13,8 +13,10 @@ class UsersController < ApplicationController
 end
 
 def convert_month(month_number)
-  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-    'Oct', 'Nov', 'Dec']
+  months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+  ]
   months[month_number - 1]
 end
 
@@ -27,8 +29,8 @@ def get_activity(entries)
   sessions = []
   while (date <= today)
     months << convert_month(date.month) + ", " + date.year.to_s
-    sessions << entries.where(date: date..(date>>1) - 1).length
+    sessions << entries.where(date: date..(date >> 1) - 1).length
     date = date >> 1
   end
-  {months: months, sessions: sessions}
+  { months: months, sessions: sessions }
 end
