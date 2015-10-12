@@ -27,13 +27,17 @@
 </div>
 <div class="row">
   <div class="small-6 columns">
-    <div id="map-container">
-      <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq, center: {lat: 0, lng: 0}, zoom: 1} do %>
+    <div class="row">
+      <div id="map-container">
+        <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq, center: {lat: 0, lng: 0}, zoom: 1} do %>
+        <% end %>
+      </div>
+    </div><br>
+    <div class="row">
+      <% if @activity %>
+        <div id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
       <% end %>
     </div>
-    <% if @activity %>
-      <div id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
-    <% end %>
   </div>
   <div class="small-6 columns">
     <ul>
