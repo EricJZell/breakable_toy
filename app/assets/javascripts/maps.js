@@ -1,14 +1,14 @@
 function initialize() {
-  var locations = $("#map-canvas").data("locations");
-  var center = $("#map-canvas").data("center");
-  var zoom = $("#map-canvas").data("zoom");
+  var locations = $("#entry-location").data("locations");
+  var center = $("#entry-location").data("center");
+  var zoom = $("#entry-location").data("zoom");
   var mapProp = {
     center:center,
     zoom:zoom,
     backgroundColor: "#0e1525",
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-  var map=new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+  var map=new google.maps.Map(document.getElementById("entry-location"),mapProp);
   for (var i = 0; i < locations.length; i++) {
     new google.maps.Marker({
       position:{lat: locations[i].lat, lng: locations[i].lon},

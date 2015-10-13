@@ -17,7 +17,7 @@
         <%= f.date_select(:date) %><br />
       </div>
 
-      <div class="field">
+      <!-- <div class="field">
         <%= f.label :region_id %>
         <%= f.collection_select :region_id, Region.all, :id, :name, {}, {id:'region-select'} %>
       </div>
@@ -30,6 +30,21 @@
       <div class="field">
         <%= f.label :location_id %>
         <%= f.collection_select :location_id, Location.all.where(country: Region.first.countries[0]), :id, :name, {}, {id:'location-select'} %>
+      </div> -->
+
+      <div class="field">
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude%><br />
+      </div>
+
+      <div class="field">
+        <%= f.label :longitude %>
+        <%= f.text_field :longitude%><br />
+      </div>
+
+      <div class="map-container">
+        <%= content_tag :div, class: "map-canvas", id: "current-location" do %>
+        <% end %><br />
       </div>
 
       <div class="actions">
