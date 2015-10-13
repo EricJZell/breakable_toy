@@ -11,7 +11,7 @@ function initialize() {
   var map=new google.maps.Map(document.getElementById("entry-location"),mapProp);
   for (var i = 0; i < locations.length; i++) {
     new google.maps.Marker({
-      position:{lat: locations[i].lat, lng: locations[i].lon},
+      position:{lat: locations[i].latitude, lng: locations[i].longitude},
       map: map,
       title: "hello, world"
     });
@@ -48,4 +48,6 @@ function initialize() {
 
   map.setOptions({styles: styles});
 }
-google.maps.event.addDomListener(window, "load", initialize);
+if ($("#entry-location").length) {
+  google.maps.event.addDomListener(window, "load", initialize);
+}  

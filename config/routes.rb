@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:index]
   resources :countries, only: [:index]
-
 end

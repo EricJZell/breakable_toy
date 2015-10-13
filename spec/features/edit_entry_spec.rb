@@ -17,14 +17,13 @@ feature 'user edits an entry', %{
     sign_in(user)
     click_link entry.title
     click_link 'Edit Entry'
-    select location.country.region.name, from: 'region-select'
-    select location.country.name, from: 'country-select'
-    select location.name, from: 'location-select'
     select '2013', from: 'entry_date_1i'
     select 'October', from: 'entry_date_2i'
     select '25', from: 'entry_date_3i'
     fill_in 'Title', with: 'Yewww'
     fill_in 'Body', with: 'wa-pash'
+    fill_in 'Latitude', with: location.lat
+    fill_in 'Longitude', with: location.lon
     click_button 'Update Entry'
     expect(page).to have_content('Journal Entry Updated!')
     expect(page).to have_content('wa-pash')
@@ -37,10 +36,9 @@ feature 'user edits an entry', %{
     sign_in(user)
     click_link entry.title
     click_link 'Edit Entry'
-    select location.country.region.name, from: 'region-select'
-    select location.country.name, from: 'country-select'
-    select location.name, from: 'location-select'
     fill_in 'Title', with: ''
+    fill_in 'Latitude', with: location.lat
+    fill_in 'Longitude', with: location.lon
     click_button 'Update Entry'
     expect(page).to have_content('Title can\'t be blank')
     expect(page).to have_content('Fill out entry details below:')

@@ -46,6 +46,10 @@ class EntriesController < ApplicationController
     @user = current_user
     @entry.user = @user
     if @entry.update(entry_params)
+      @entry.location = find_nearest_location(@entry.latitude, @entry.longitude)
+      @entry.country = @entry.location.country
+      @entry.region = @entry.location.country.region
+      @entry.save
       flash[:success] = 'Journal Entry Updated!'
       redirect_to user_entry_path(@user, @entry)
     else

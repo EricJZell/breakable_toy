@@ -5,12 +5,10 @@ var browserSupportFlag =  new Boolean();
 
 function initialize() {
   var myOptions = {
-    zoom: 14,
+    zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("current-location"), myOptions);
-  marker = new google.maps.Marker( {position: { lat: 42.35, lng: -71.06 }, map: map} );
-  marker.setMap( map );
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
     browserSupportFlag = true;
@@ -19,6 +17,8 @@ function initialize() {
       $("#entry_latitude").val(initialLocation.lat());
       $("#entry_longitude").val(initialLocation.lng());
       map.setCenter(initialLocation);
+      marker = new google.maps.Marker( {position: initialLocation, map: map} );
+      marker.setMap( map );
     }, function() {
       handleNoGeolocation(browserSupportFlag);
     });
@@ -29,7 +29,6 @@ function initialize() {
     browserSupportFlag = false;
     handleNoGeolocation(browserSupportFlag);
   }
-
   function handleNoGeolocation(errorFlag) {
     if (errorFlag == true) {
       alert("Geolocation service failed.");
@@ -78,6 +77,7 @@ function initialize() {
     $("#entry_latitude").val(latitude);
     $("#entry_longitude").val(longitude);
   }); //end addListener
-
 }
-google.maps.event.addDomListener(window, "load", initialize);
+if($("#current-location").length){
+  google.maps.event.addDomListener(window, "load", initialize);
+}
