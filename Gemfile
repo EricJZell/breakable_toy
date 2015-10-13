@@ -17,6 +17,7 @@ gem 'dotenv-rails'
 gem 'nokogiri'
 gem 'json'
 gem 'owlcarousel-rails'
+gem 'httparty'
 
 
 group :development, :test do

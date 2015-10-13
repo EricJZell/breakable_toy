@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
   end
 
   def create
+    binding.pry
     @entry = Entry.new(entry_params)
     @entry.location = find_nearest_location(@entry.latitude, @entry.longitude)
     @entry.country = @entry.location.country
