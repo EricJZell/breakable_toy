@@ -91,10 +91,10 @@ class EntriesController < ApplicationController
     dlat_rad = dlat * rad_per_deg
 
     lat1_rad = lat1 * rad_per_deg
-    lon1_rad = lon1 * rad_per_deg
+    #lon1_rad = lon1 * rad_per_deg
 
     lat2_rad = lat2 * rad_per_deg
-    lon2_rad = lon2 * rad_per_deg
+    #lon2_rad = lon2 * rad_per_deg
 
     a = (Math.sin(dlat_rad / 2))**2 + Math.cos(lat1_rad) *
       Math.cos(lat2_rad) * (Math.sin(dlon_rad / 2))**2
