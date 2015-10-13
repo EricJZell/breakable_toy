@@ -80,8 +80,9 @@ class EntriesController < ApplicationController
     nearest_location
   end
 
-  def distance_miles( lat1, lon1, lat2, lon2 )
-    rmiles = 3956           # radius of the great circle in miles
+  def distance_miles(lat1, lon1, lat2, lon2)
+    #rmiles = radius of earth in miles
+    rmiles = 3956
     rad_per_deg = 0.017453293
     dlon = lon2 - lon1
     dlat = lat2 - lat1
@@ -95,11 +96,12 @@ class EntriesController < ApplicationController
     lat2_rad = lat2 * rad_per_deg
     lon2_rad = lon2 * rad_per_deg
 
-    a = (Math.sin(dlat_rad/2))**2 + Math.cos(lat1_rad) *
-         Math.cos(lat2_rad) * (Math.sin(dlon_rad/2))**2
-    c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
+    a = (Math.sin(dlat_rad / 2))**2 + Math.cos(lat1_rad) *
+      Math.cos(lat2_rad) * (Math.sin(dlon_rad / 2))**2
+    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 
-    dMi = rmiles * c      # delta between the two points in miles
+    dMi = rmiles * c
+    return dMi
   end
 
 end
