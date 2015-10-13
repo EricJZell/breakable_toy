@@ -15,12 +15,12 @@
         <h4><%=@user.locations.uniq.length%></h4>
       </li>
       <li class="stats">
-        <p>Continents:</p>
+        <p>Friends:</p>
         <h4>2</h4>
       </li>
       <li class="stats">
         <p>Photos:</p>
-        <h4>17</h4>
+        <h4><%=@user.photos.length%></h4>
       </li>
     </ul>
   </div>
@@ -28,8 +28,8 @@
 <div class="row">
   <div class="small-6 columns">
     <div class="row">
-      <div id="map-container">
-        <%= content_tag :div, id: "map-canvas", data: {locations: @user.locations.uniq, center: {lat: 0, lng: 0}, zoom: 1} do %>
+      <div class="map-container">
+        <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
         <% end %>
       </div>
     </div><br>

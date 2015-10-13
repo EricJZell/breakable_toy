@@ -18,6 +18,7 @@ gem 'nokogiri'
 gem 'json'
 gem 'owlcarousel-rails'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
@@ -35,5 +36,7 @@ group :development do
 end
 
 group :test do
+  gem 'poltergeist'
+  gem 'database_cleaner'
   gem 'coveralls', require: false
 end

@@ -64,7 +64,7 @@ body {
 
 }
 
-#map-container {
+.map-container {
   height: 400px;
   border-radius: 16px 16px;
   border-color: #fff;
@@ -73,7 +73,7 @@ body {
   margin-top: 25px;
   border-width: 7px;
  }
- #map-canvas {
+ .map-canvas {
   height: 100%;
   width: 100%;
  }

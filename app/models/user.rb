@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :user_name, uniqueness: true
   has_many :entries, dependent: :destroy
   has_many :locations, through: :entries
+  has_many :photos, through: :entries
 
   def full_name
     "#{first_name} #{last_name}"
