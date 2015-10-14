@@ -8,4 +8,5 @@ class Entry < ActiveRecord::Base
   belongs_to :country
   belongs_to :region
   has_many :photos, dependent: :destroy
+  has_many :swell_models, dependent: :destroy
 end
