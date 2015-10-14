@@ -5,8 +5,14 @@ class EntriesController < ApplicationController
     @user = @entry.user
     @photos = @entry.photos
     @swell_data = @entry.swell_models[0].swell_data
+    if @swell_data['swell']['components']['secondary']
+      @secondary_height = @swell_data['swell']['components']['secondary']['height']
+      @secondary_period = @swell_data['swell']['components']['secondary']['period']
+      @secondary_direction = get_direction(@swell_data['swell']['components']['secondary']['direction'])
+    else
+      @secondary_height, @secondary_period, @secondary_direction = '0', '0', ''
+    end
     @primary_direction = get_direction(@swell_data['swell']['components']['primary']['direction'])
-    @secondary_direction = get_direction(@swell_data['swell']['components']['secondary']['direction'])
     @wind_direction = get_direction(@swell_data['wind']['direction'])
     @photo = Photo.new
   end
