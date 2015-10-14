@@ -15,3 +15,4 @@ public/uploads/
 /coverage
 .env
 .coveralls.yml
+swell_journal.txt

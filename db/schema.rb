@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013184712) do
+ActiveRecord::Schema.define(version: 20151014185417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20151013184712) do
     t.integer  "region_id",      null: false
     t.float    "latitude"
     t.float    "longitude"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "requestor_id",                 null: false
+    t.integer "requestee_id",                 null: false
+    t.boolean "accepted",     default: false, null: false
   end
 
   create_table "locations", force: :cascade do |t|
