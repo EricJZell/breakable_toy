@@ -13,7 +13,7 @@ feature 'user deletes an entry', %{
   let!(:entry) { FactoryGirl.create(:entry) }
   let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'user deletes one of thier entries' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     sign_in(user)
     click_link entry.title
@@ -24,7 +24,7 @@ feature 'user deletes an entry', %{
   end
 
   scenario 'user cannot update another user entry' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user2 = FactoryGirl.create(:user)
     user = entry.user
     sign_in(user2)

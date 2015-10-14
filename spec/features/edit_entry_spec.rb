@@ -13,7 +13,7 @@ feature 'user edits an entry', %{
   let!(:entry) { FactoryGirl.create(:entry) }
   let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'user provides valid update information' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     location = entry.location
     sign_in(user)
@@ -33,7 +33,7 @@ feature 'user edits an entry', %{
   end
 
   scenario 'user provides invalid update information' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     location = entry.location
     sign_in(user)

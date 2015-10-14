@@ -14,7 +14,7 @@ feature 'view journal entry details', %{
   let!(:entry) { FactoryGirl.create(:entry) }
   let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'signed in user views details' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     sign_in(user)
     click_link entry.title
