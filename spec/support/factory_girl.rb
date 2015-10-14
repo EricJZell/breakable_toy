@@ -36,7 +36,7 @@ FactoryGirl.define do
     body 'yewwww'
   end
 
-  factory :swell_data, class:Hash do
+  factory :swell_data, class: Hash do
     data {
       { "timestamp" => 1444780800,
         "localTimestamp" => 1444780800,
