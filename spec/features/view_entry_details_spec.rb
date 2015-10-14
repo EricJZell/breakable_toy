@@ -11,9 +11,11 @@ feature 'view journal entry details', %{
   [x] I must see the entry location, date, and body
 
 } do
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:entry) { FactoryGirl.create(:entry, user: user) }
+  let!(:entry) { FactoryGirl.create(:entry) }
+  let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'signed in user views details' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
+    user = entry.user
     sign_in(user)
     click_link entry.title
     expect(page).to have_content(entry.body)
@@ -22,6 +24,7 @@ feature 'view journal entry details', %{
   end
 
   scenario 'non-user views page' do
+    user = entry.user
     visit user_path(user)
     click_link entry.title
     expect(page).to have_content('You need to sign in')

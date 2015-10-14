@@ -12,7 +12,9 @@ feature 'user adds photo to entry', %{
   [x] I must be provided with a success message on successful upload
 } do
   let!(:entry) { FactoryGirl.create(:entry) }
+  let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'provide valid file' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     sign_in(user)
     click_link entry.title
@@ -25,6 +27,7 @@ feature 'user adds photo to entry', %{
   end
 
   scenario 'user does not choose file' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     sign_in(user)
     click_link entry.title

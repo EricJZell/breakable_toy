@@ -11,7 +11,9 @@ feature 'user edits an entry', %{
   [x] I must be provided with a success message on successful upload
 } do
   let!(:entry) { FactoryGirl.create(:entry) }
+  let!(:swell_data) { FactoryGirl.build(:swell_data)[:data] }
   scenario 'user provides valid update information' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     location = entry.location
     sign_in(user)
@@ -31,6 +33,7 @@ feature 'user edits an entry', %{
   end
 
   scenario 'user provides invalid update information' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user = entry.user
     location = entry.location
     sign_in(user)
@@ -45,6 +48,7 @@ feature 'user edits an entry', %{
   end
 
   scenario 'user cannot update another user entry' do
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user2 = FactoryGirl.create(:user)
     user = entry.user
     sign_in(user2)
