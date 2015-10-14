@@ -1,18 +1,70 @@
 <div class="row">
   <div class="small-4 columns">
     <%= image_tag(@user.profile_photo) %>
-    <h4>@<%= @user.user_name %></h4>
   </div>
   <div class="small-8 columns">
     <h3><%= @entry.title %></h3>
-    <h6><%= "#{@entry.date}, #{@entry.location.name}, #{@entry.country.name}, #{@entry.region.name}"%></h6>
+    <h6><%= "Posted by #{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h6>
     <% if current_user == @user %>
       <h6>
         <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
         <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
       </h6>
     <% end %>
-    <h6><%= link_to("Check out the current forcast for #{@entry.location.name}!", "http://magicseaweed.com/#{@entry.location.msw_url}", target: '_blank')%></h6>
+    <ul class="small-block-grid-4 stats">
+      <li>
+          <h6>Wave Height</h6>
+          <h3><%=@swell_data['swell']['components']['combined']['height']%>ft</h3>
+      </li>
+      <li>
+        <h6>Primary Swell</h6>
+        <div class="row">
+          <div class="small-8 text-right columns">
+            <h5><%=@swell_data['swell']['components']['primary']['height']%>ft @ <%=@swell_data['swell']['components']['primary']['period']%>s<h5>
+          </div>
+          <div class="small-4 columns">
+            <h6 class="msw-swa msw-swa-<%=@primary_direction%>"></h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h6>Secondary Swell</h6>
+        <div class="row">
+          <div class="small-9 text-right columns">
+            <h5><%=@swell_data['swell']['components']['secondary']['height']%>ft @ <%=@swell_data['swell']['components']['secondary']['period']%>s<h5>
+          </div>
+          <div class="small-3 columns">
+            <h6 class="msw-swa msw-swa-<%=@secondary_direction%>"></h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h6>Wind</h6>
+        <div class="row">
+          <div class="small-9 text-right columns">
+            <h5><%=@swell_data['wind']['speed']%>mph<h5>
+          </div>
+          <div class="small-3 columns">
+            <h6 class="msw-swa msw-swa-<%=@wind_direction%>"></h6>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="small-block-grid-3 charts">
+      <li class="chart">
+          <%=image_tag(@swell_data['charts']['swell'])%>
+          <h6 class="text-center">Swell Height</h6>
+      </li>
+      <li class="chart">
+          <%=image_tag(@swell_data['charts']['period'])%>
+          <h6 class="text-center">Swell Period</h6>
+      </li>
+      <li class="chart">
+          <%=image_tag(@swell_data['charts']['wind'])%>
+          <h6 class="text-center">Wind</h6>
+      </li>
+    </ul>
   </div>
 </div>
 <div class="row">

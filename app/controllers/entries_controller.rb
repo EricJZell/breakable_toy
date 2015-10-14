@@ -4,6 +4,10 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @user = @entry.user
     @photos = @entry.photos
+    @swell_data = @entry.swell_models[0].swell_data
+    @primary_direction = get_direction(@swell_data['swell']['components']['primary']['direction'])
+    @secondary_direction = get_direction(@swell_data['swell']['components']['secondary']['direction'])
+    @wind_direction = get_direction(@swell_data['wind']['direction'])
     @photo = Photo.new
   end
 
@@ -13,7 +17,6 @@ class EntriesController < ApplicationController
   end
 
   def create
-    binding.pry
     @entry = Entry.new(entry_params)
     @entry.location = find_nearest_location(@entry.latitude, @entry.longitude)
     @entry.country = @entry.location.country
@@ -21,6 +24,8 @@ class EntriesController < ApplicationController
     @user = current_user
     @entry.user = @user
     if @entry.save
+      response = HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")
+      swell_model = SwellModel.create(entry: @entry, swell_data: response[0])
       flash[:success] = 'New journal entry created!'
       redirect_to user_path(@user)
     else
@@ -60,6 +65,15 @@ class EntriesController < ApplicationController
   end
 
   protected
+
+  def get_direction(raw)
+    rounded = ((raw * 2).round(-1)) / 2
+    if rounded <= 180
+      return rounded + 180
+    else
+      return rounded - 180
+    end
+  end
 
   def entry_params
     params.require(:entry).permit(
