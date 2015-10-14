@@ -48,7 +48,7 @@ feature 'user edits an entry', %{
   end
 
   scenario 'user cannot update another user entry' do
-    sm = SwellModel.create(entry: entry, swell_data: swell_data)
+    SwellModel.create(entry: entry, swell_data: swell_data)
     user2 = FactoryGirl.create(:user)
     user = entry.user
     sign_in(user2)

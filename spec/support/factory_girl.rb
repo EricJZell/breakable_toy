@@ -53,7 +53,7 @@ FactoryGirl.define do
           { "combined" => { "height" => 2.5, "period" => 18, "direction" => 102.88, "compassDirection" => "WNW" },
             "primary" => { "height" => 1.3, "period" => 17, "direction" => 105.32, "compassDirection" => "WNW" },
             "secondary" => { "height" => 1.1, "period" => 10, "direction" => 94.39, "compassDirection" => "W" },
-            "tertiary" => { "height" => 1.6, "period" => 5, "direction" => 204.06, "compassDirection" => "NNE" }}},
+            "tertiary" => { "height" => 1.6, "period" => 5, "direction" => 204.06, "compassDirection" => "NNE" } } },
         "wind" => { "speed" => 9, "direction" => 247, "compassDirection" => "ENE", "chill" => 46, "gusts" => 12, "unit" => "mph" },
         "condition" => { "pressure" => 1027, "temperature" => 53, "weather" => 10, "unitPressure" => "mb", "unit" => "f" },
         "charts" =>
@@ -61,7 +61,7 @@ FactoryGirl.define do
           "period" => "http://hist-1.msw.ms/wave/750/1-1444780800-2.gif",
           "wind" => "http://hist-1.msw.ms/gfs/750/1-1444780800-4.gif",
           "pressure" => "http://hist-1.msw.ms/gfs/750/1-1444780800-3.gif",
-          "sst" => "http://hist-1.msw.ms/sst/750/1-1444780800-10.gif" }}
+          "sst" => "http://hist-1.msw.ms/sst/750/1-1444780800-10.gif" } }
     }
     initialize_with { attributes }
   end
