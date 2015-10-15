@@ -47,6 +47,7 @@ class EntriesController < ApplicationController
     @entry.user = @user
     if @entry.update(entry_params)
       @entry.set_location
+      @entry.save
       flash[:success] = 'Journal Entry Updated!'
       redirect_to user_entry_path(@user, @entry)
     else
