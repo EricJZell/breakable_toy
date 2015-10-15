@@ -11,6 +11,7 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById("current-location"), myOptions);
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
+    debugger;
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
