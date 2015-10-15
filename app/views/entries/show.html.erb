@@ -84,7 +84,7 @@
   </div>
   <div class="small-6 columns">
     <div class="map-container">
-      <%= content_tag :div, class: "map-canvas", id: "entry-location", data: {locations: [@entry].to_json, center: {lat: @entry.latitude, lng: @entry.longitude}.to_json, zoom: 7} do %>
+      <%= content_tag :div, class: "map-canvas", id: "entry-location", data: {locations: [@entry], center: {lat: @entry.latitude, lng: @entry.longitude}, zoom: 7} do %>
       <% end %>
     </div>
     <p><%= @entry.body %></p>

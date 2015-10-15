@@ -30,7 +30,7 @@
 
       <% if params[:action] == 'edit' %>
         <div class="map-container">
-          <%= content_tag :div, class: "map-canvas", id: "update-location", data: {lat: @entry.latitude.to_json, lon: @entry.longitude.to_json} do %>
+          <%= content_tag :div, class: "map-canvas", id: "update-location", data: {lat: @entry.latitude, lon: @entry.longitude.} do %>
           <% end %>
         </div>
       <% else %>
