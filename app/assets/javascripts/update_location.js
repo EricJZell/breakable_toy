@@ -7,7 +7,7 @@ function updateLocation() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("update-location"), myOptions);
-  marker = new google.maps.Marker( {position: { lat: mapDiv.data().lat, lng: mapDiv.data().lon }, map: map} );
+  marker = new google.maps.Marker( {position: { lat: 34, lng: 24 }, map: map} );
   marker.setMap( map );
   var styles = [
     {
