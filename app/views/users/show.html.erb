@@ -29,7 +29,7 @@
   <div class="small-6 columns">
     <div class="row">
       <div class="map-container">
-        <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
+        <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries.to_json, center: {lat: 0, lng: 0}, zoom: 1} do %>
         <% end %>
       </div>
     </div><br>

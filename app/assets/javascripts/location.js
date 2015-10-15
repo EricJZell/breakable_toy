@@ -79,6 +79,5 @@ function initialize() {
   }); //end addListener
 }
 if($("#current-location").length){
-  debugger;
   google.maps.event.addDomListener(window, "load", initialize);
 }

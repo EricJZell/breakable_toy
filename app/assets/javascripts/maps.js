@@ -50,4 +50,4 @@ function initialize() {
 }
 if ($("#entry-location").length) {
   google.maps.event.addDomListener(window, "load", initialize);
-}  
+}
