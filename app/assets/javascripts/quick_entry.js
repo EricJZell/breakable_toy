@@ -7,7 +7,6 @@ if($("#quick-entry").length){
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       $("#entry_latitude").val(initialLocation.lat());
       $("#entry_longitude").val(initialLocation.lng());
-      debugger;
       $(".button").show();
       $(".loading").hide();
     }, function() {
@@ -19,10 +18,10 @@ if($("#quick-entry").length){
     handleNoGeolocation(browserSupportFlag);
   }
   function handleNoGeolocation(errorFlag) {
-    if (errorFlag == true) {
+    if (errorFlag === true) {
       alert("Geolocation service failed.");
     } else {
-      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+      alert("Your browser doesn't support geolocation");
     }
   }
 }
