@@ -15,7 +15,7 @@
 //= require owl.carousel
 //= require foundation
 //= require highcharts/highcharts.js
-//= require_tree .
+//= require maps
 
 
 $(function(){ $(document).foundation(); });
