@@ -19,7 +19,7 @@ class Entry < ActiveRecord::Base
   def find_nearest_location(lat1, lon1)
     nearest_distance = 1000000
     nearest_location = Location.first
-    Location.all.each do |location|
+    Location.find_each do |location|
       distance = distance_miles(lat1, lon1, location.lat, location.lon)
       if distance < nearest_distance
         nearest_location = location
