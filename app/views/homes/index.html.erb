@@ -5,6 +5,17 @@
       <h1 class="home-font">JOURNAL</h1>
       <% if current_user %>
         <h6 class='home-font'><%="Welcome back @#{current_user.user_name}!"%></h6>
+        <div class="row">
+          <div class="big-button small-6 columns text-center small-centered">
+            <%= form_for [current_user, @entry] do |f| %>
+              <%= f.hidden_field :title, value: 'Title'  %>
+              <%= f.date_select :date, { :discard_day => true, :discard_month => true, :discard_year => true } %>
+              <%= f.hidden_field :latitude, value: 40  %>
+              <%= f.hidden_field :longitude, value: -70 %>
+              <%= f.submit class:"button alert large" %>
+            <% end %>
+          </div>
+        </div>
       <% else %>
         <div class="row">
           <div class="small-6 small-centered columns">

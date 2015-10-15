@@ -97,6 +97,13 @@ h6 {
   font-weight: bold;
 }
 
+.big-button {
+  margin: 40px;
+}
+
+
+
+
 .msw-swa /* Inherits from swell arrows */
 {
    background: url("http://im-1.msw.ms/md/static/sa-sprite.png") no-repeat top left;
