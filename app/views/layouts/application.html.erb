@@ -40,8 +40,18 @@
     <%- end -%>
     <%= yield %>
   </div>
+
   <script src="https://maps.googleapis.com/maps/api/js?" + <%=ENV['GOOGLE_MAPS_API_KEY']%>></script>
   <%= javascript_include_tag 'application' %>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function(){
+        $(".alert-box").fadeOut("slow", function() {
+          $(this).remove();
+        })
+      }, 3000);
+    });
+  </script>
   <%= yield :extra_footer %>
 </body>
 </html>
