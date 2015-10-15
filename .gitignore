@@ -16,3 +16,4 @@ public/uploads/
 .env
 .coveralls.yml
 swell_journal.txt
+original_seeder.rb
