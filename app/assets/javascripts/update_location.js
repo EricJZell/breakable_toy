@@ -1,13 +1,13 @@
 function updateLocation() {
   var mapDiv = $("#update-location");
-  var centerUpdate = { lat: 24, lng: 24 };
+  var center = { lat: mapDiv.data("lat"), lng: mapDiv.data("lon") };
   var myOptions = {
     zoom: 12,
-    center: centerUpdate,
+    center: center,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("update-location"), myOptions);
-  marker = new google.maps.Marker( {position: { lat: 34, lng: 24 }, map: map} );
+  marker = new google.maps.Marker( {position: center, map: map} );
   marker.setMap( map );
   var styles = [
     {
