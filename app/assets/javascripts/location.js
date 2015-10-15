@@ -1,9 +1,8 @@
-var initialLocation;
-var siberia = new google.maps.LatLng(60, 105);
-var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
-var browserSupportFlag =  new Boolean();
-
 function getLocation() {
+  var initialLocation;
+  var siberia = new google.maps.LatLng(60, 105);
+  var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+  var browserSupportFlag =  new Boolean();
   var myOptions = {
     zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
