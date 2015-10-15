@@ -41,3 +41,5 @@ group :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
 end
+
+gem 'rails_12factor', group: :production
