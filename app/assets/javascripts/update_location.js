@@ -1,6 +1,6 @@
 function updateLocation() {
   var mapDiv = $("#update-location");
-  var centerUpdate = { lat: mapDiv.data().lat, lng: mapDiv.data().lon }
+  var centerUpdate = { lat: 24, lng: 24 };
   var myOptions = {
     zoom: 12,
     center: centerUpdate,
