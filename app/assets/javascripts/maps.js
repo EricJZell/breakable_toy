@@ -1,7 +1,7 @@
 function initialize() {
-  var locations = $("#entry-location").data("locations");
-  var center = $("#entry-location").data("center");
-  var zoom = $("#entry-location").data("zoom");
+  //var locations = $("#entry-location").data("locations");
+  var center = { lat: 40, lng: 290 };//$("#entry-location").data("center");
+  var zoom = 5; //$("#entry-location").data("zoom");
   var mapProp = {
     center:center,
     zoom:zoom,
@@ -9,13 +9,13 @@ function initialize() {
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("entry-location"),mapProp);
-  for (var i = 0; i < locations.length; i++) {
-    new google.maps.Marker({
-      position:{lat: 34, lng: 34},
-      map: map,
-      title: "hello, world"
-    });
-  }
+  // for (var i = 0; i < locations.length; i++) {
+  //   new google.maps.Marker({
+  //     position:{lat: locations[i].latitude, lng: locations[i].longitude},
+  //     map: map,
+  //     title: "hello, world"
+  //   });
+  // }
   var styles = [
     {
       featureType: "road",
