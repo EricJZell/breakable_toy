@@ -15,14 +15,11 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-    @entry.location = find_nearest_location(@entry.latitude, @entry.longitude)
-    @entry.country = @entry.location.country
-    @entry.region = @entry.location.country.region
+    @entry.set_location
     @user = current_user
     @entry.user = @user
     if @entry.save
-      response = HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")
-      SwellModel.create(entry: @entry, swell_data: response[0])
+      SwellModel.create(entry: @entry, swell_data: HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")[0])
       flash[:success] = 'New journal entry created!'
       redirect_to user_path(@user)
     else
@@ -49,10 +46,7 @@ class EntriesController < ApplicationController
     @user = current_user
     @entry.user = @user
     if @entry.update(entry_params)
-      @entry.location = find_nearest_location(@entry.latitude, @entry.longitude)
-      @entry.country = @entry.location.country
-      @entry.region = @entry.location.country.region
-      @entry.save
+      @entry.set_location
       flash[:success] = 'Journal Entry Updated!'
       redirect_to user_entry_path(@user, @entry)
     else
@@ -67,34 +61,6 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(
       :title, :body, :latitude, :longitude, :date
     )
-  end
-
-  def find_nearest_location(lat1, lon1)
-    nearest_distance = 1000000
-    nearest_location = Location.first
-    Location.all.each do |location|
-      distance = distance_miles(lat1, lon1, location.lat, location.lon)
-      if distance < nearest_distance
-        nearest_location = location
-        nearest_distance = distance
-      end
-    end
-    nearest_location
-  end
-
-  def distance_miles(lat1, lon1, lat2, lon2)
-    rmiles = 3956
-    rad_per_deg = 0.017453293
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-    dlon_rad = dlon * rad_per_deg
-    dlat_rad = dlat * rad_per_deg
-    lat1_rad = lat1 * rad_per_deg
-    lat2_rad = lat2 * rad_per_deg
-    a = (Math.sin(dlat_rad / 2))**2 + Math.cos(lat1_rad) *
-      Math.cos(lat2_rad) * (Math.sin(dlon_rad / 2))**2
-    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-    rmiles * c
   end
 
 end
