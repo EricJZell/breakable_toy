@@ -1,9 +1,9 @@
 function updateLocation() {
   var mapDiv = $("#update-location");
-  var center = { lat: mapDiv.data().lat, lng: mapDiv.data().lon }
+  var centerUpdate = { lat: mapDiv.data().lat, lng: mapDiv.data().lon }
   var myOptions = {
     zoom: 12,
-    center: center,
+    center: centerUpdate,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("update-location"), myOptions);
