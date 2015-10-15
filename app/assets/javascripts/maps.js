@@ -11,7 +11,7 @@ function initialize() {
   var map=new google.maps.Map(document.getElementById("entry-location"),mapProp);
   for (var i = 0; i < locations.length; i++) {
     new google.maps.Marker({
-      position:{lat: locations[i].latitude, lng: locations[i].longitude},
+      position:{lat: 34, lng: 34},
       map: map,
       title: "hello, world"
     });
