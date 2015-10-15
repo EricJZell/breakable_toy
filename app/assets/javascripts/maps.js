@@ -1,4 +1,4 @@
-function initialize() {
+function showMap() {
   //var locations = $("#entry-location").data("locations");
   var center = { lat: 40, lng: 290 };//$("#entry-location").data("center");
   var zoom = 5; //$("#entry-location").data("zoom");
@@ -49,5 +49,5 @@ function initialize() {
   map.setOptions({styles: styles});
 }
 if ($("#entry-location").length) {
-  google.maps.event.addDomListener(window, "load", initialize);
+  google.maps.event.addDomListener(window, "load", showMap);
 }

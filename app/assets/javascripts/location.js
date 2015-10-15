@@ -3,7 +3,7 @@ var siberia = new google.maps.LatLng(60, 105);
 var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
 var browserSupportFlag =  new Boolean();
 
-function initialize() {
+function getLocation() {
   var myOptions = {
     zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -79,5 +79,5 @@ function initialize() {
   }); //end addListener
 }
 if($("#current-location").length){
-  google.maps.event.addDomListener(window, "load", initialize);
+  google.maps.event.addDomListener(window, "load", getLocation);
 }
