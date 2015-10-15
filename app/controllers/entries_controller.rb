@@ -4,16 +4,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @user = @entry.user
     @photos = @entry.photos
-    @swell_data = @entry.swell_models[0].swell_data
-    if @swell_data['swell']['components']['secondary']
-      @secondary_height = @swell_data['swell']['components']['secondary']['height']
-      @secondary_period = @swell_data['swell']['components']['secondary']['period']
-      @secondary_direction = get_direction(@swell_data['swell']['components']['secondary']['direction'])
-    else
-      @secondary_height, @secondary_period, @secondary_direction = '0', '0', ''
-    end
-    @primary_direction = get_direction(@swell_data['swell']['components']['primary']['direction'])
-    @wind_direction = get_direction(@swell_data['wind']['direction'])
+    @swell_data = @entry.swell_models[0]
     @photo = Photo.new
   end
 
@@ -72,15 +63,6 @@ class EntriesController < ApplicationController
 
   protected
 
-  def get_direction(raw)
-    rounded = ((raw * 2).round(-1)) / 2
-    if rounded <= 180
-      return rounded + 180
-    else
-      return rounded - 180
-    end
-  end
-
   def entry_params
     params.require(:entry).permit(
       :title, :body, :latitude, :longitude, :date
@@ -88,10 +70,9 @@ class EntriesController < ApplicationController
   end
 
   def find_nearest_location(lat1, lon1)
-    locations = Location.all
     nearest_distance = 1000000
-    nearest_location = locations.first
-    locations.each do |location|
+    nearest_location = Location.first
+    Location.all.each do |location|
       distance = distance_miles(lat1, lon1, location.lat, location.lon)
       if distance < nearest_distance
         nearest_location = location
@@ -102,27 +83,18 @@ class EntriesController < ApplicationController
   end
 
   def distance_miles(lat1, lon1, lat2, lon2)
-    #rmiles = radius of earth in miles
     rmiles = 3956
     rad_per_deg = 0.017453293
     dlon = lon2 - lon1
     dlat = lat2 - lat1
-
     dlon_rad = dlon * rad_per_deg
     dlat_rad = dlat * rad_per_deg
-
     lat1_rad = lat1 * rad_per_deg
-    #lon1_rad = lon1 * rad_per_deg
-
     lat2_rad = lat2 * rad_per_deg
-    #lon2_rad = lon2 * rad_per_deg
-
     a = (Math.sin(dlat_rad / 2))**2 + Math.cos(lat1_rad) *
       Math.cos(lat2_rad) * (Math.sin(dlon_rad / 2))**2
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-
-    dMi = rmiles * c
-    return dMi
+    rmiles * c
   end
 
 end
