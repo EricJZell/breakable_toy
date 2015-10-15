@@ -34,7 +34,7 @@
 
   <div class="main-container">
     <%- flash.each do |key, value| -%>
-      <div class="alert-box">
+      <div class="alert-box <%=key%>">
         <%= value %>
       </div>
     <%- end -%>

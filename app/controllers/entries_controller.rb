@@ -23,7 +23,7 @@ class EntriesController < ApplicationController
       flash[:success] = 'New journal entry created!'
       redirect_to user_entry_path(@user, @entry)
     else
-      flash[:warning] = @entry.errors.full_messages.join(', ')
+      flash[:alert] = @entry.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -51,7 +51,7 @@ class EntriesController < ApplicationController
       flash[:success] = 'Journal Entry Updated!'
       redirect_to user_entry_path(@user, @entry)
     else
-      flash[:warning] = @entry.errors.full_messages.join(', ')
+      flash[:alert] = @entry.errors.full_messages.join(', ')
       render :edit
     end
   end
