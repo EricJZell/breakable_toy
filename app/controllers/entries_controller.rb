@@ -4,16 +4,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     @user = @entry.user
     @photos = @entry.photos
-    @swell_data = @entry.swell_models[0].swell_data
-    if @swell_data['swell']['components']['secondary']
-      @secondary_height = @swell_data['swell']['components']['secondary']['height']
-      @secondary_period = @swell_data['swell']['components']['secondary']['period']
-      @secondary_direction = get_direction(@swell_data['swell']['components']['secondary']['direction'])
-    else
-      @secondary_height, @secondary_period, @secondary_direction = '0', '0', ''
-    end
-    @primary_direction = get_direction(@swell_data['swell']['components']['primary']['direction'])
-    @wind_direction = get_direction(@swell_data['wind']['direction'])
+    @swell_data = @entry.swell_models[0]
     @photo = Photo.new
   end
 
@@ -72,15 +63,6 @@ class EntriesController < ApplicationController
 
   protected
 
-  def get_direction(raw)
-    rounded = ((raw * 2).round(-1)) / 2
-    if rounded <= 180
-      return rounded + 180
-    else
-      return rounded - 180
-    end
-  end
-
   def entry_params
     params.require(:entry).permit(
       :title, :body, :latitude, :longitude, :date
@@ -88,10 +70,9 @@ class EntriesController < ApplicationController
   end
 
   def find_nearest_location(lat1, lon1)
-    locations = Location.all
     nearest_distance = 1000000
-    nearest_location = locations.first
-    locations.each do |location|
+    nearest_location = Location.first
+    Location.all.each do |location|
       distance = distance_miles(lat1, lon1, location.lat, location.lon)
       if distance < nearest_distance
         nearest_location = location
