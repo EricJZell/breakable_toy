@@ -1,92 +1,99 @@
 <div class="row">
-  <div class="small-4 columns">
-    <%= image_tag(@user.profile_photo) %>
+  <div class="small-4 text-center columns">
+    <%= link_to image_tag(@user.profile_photo, id:"thumb"), @user %>
+    <h6><%= link_to "@#{@user.user_name}", @user %></h6>
   </div>
   <div class="small-8 columns">
-    <h3><%= @entry.title %></h3>
-    <h6><%= "Posted by #{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h6>
-    <% if current_user == @user %>
-      <h6>
-        <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
-        <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
-      </h6>
-    <% end %>
-    <ul class="small-block-grid-4 stats">
-      <li>
-          <h6>Wave Height</h6>
-          <h3><%=@swell_data.wave_height%>ft</h3>
-      </li>
-      <li>
-        <h6>Primary Swell</h6>
-        <div class="row">
-          <div class="small-8 text-right columns">
-            <h5><%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s<h5>
-          </div>
-          <div class="small-4 columns">
-            <h6 class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></h6>
-          </div>
-        </div>
-      </li>
-      <li>
-        <h6>Secondary Swell</h6>
-        <div class="row">
-          <div class="small-9 text-right columns">
-            <h5><%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s<h5>
-          </div>
-          <div class="small-3 columns">
-            <h6 class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></h6>
-          </div>
-        </div>
-      </li>
-      <li>
-        <h6>Wind</h6>
-        <div class="row">
-          <div class="small-9 text-right columns">
-            <h5><%=@swell_data.wind_speed%>mph<h5>
-          </div>
-          <div class="small-3 columns">
-            <h6 class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></h6>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <ul class="small-block-grid-3 charts">
-      <li class="chart">
-          <%=image_tag(@swell_data.swell_data['charts']['swell'])%>
-          <h6 class="text-center">Swell Height</h6>
-      </li>
-      <li class="chart">
-          <%=image_tag(@swell_data.swell_data['charts']['period'])%>
-          <h6 class="text-center">Swell Period</h6>
-      </li>
-      <li class="chart">
-          <%=image_tag(@swell_data.swell_data['charts']['wind'])%>
-          <h6 class="text-center">Wind</h6>
-      </li>
-    </ul>
+    <h3 class="title text-center div-bar"><%= @entry.title %></h3>
+    <div class="content">
+      <h5><%= "Posted by @#{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h5>
+      <p><%= @entry.body %></p>
+      <% if current_user == @user %>
+        <h6>
+          <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
+          <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
+        </h6>
+      <% end %>
+    </div>
   </div>
 </div>
+
 <div class="row">
-  <div class="small-6 columns">
-    Photos
-    Map
+  <h6 class="div-bar">Snapshot of Conditions</h6>
+  <ul class="small-block-grid-2 medium-block-grid-4 stats">
+    <li>
+        <h6>Wave Height</h6>
+        <h3><%=@swell_data.wave_height%>ft</h3>
+    </li>
+    <li>
+      <h6>Primary Swell</h6>
+      <div class="row">
+        <div class="small-8 text-right columns">
+          <h5><%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s<h5>
+        </div>
+        <div class="small-4 columns">
+          <h6 class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></h6>
+        </div>
+      </div>
+    </li>
+    <li>
+      <h6>Secondary Swell</h6>
+      <div class="row">
+        <div class="small-9 text-right columns">
+          <h5><%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s<h5>
+        </div>
+        <div class="small-3 columns">
+          <h6 class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></h6>
+        </div>
+      </div>
+    </li>
+    <li>
+      <h6>Wind</h6>
+      <div class="row">
+        <div class="small-9 text-right columns">
+          <h5><%=@swell_data.wind_speed%>mph<h5>
+        </div>
+        <div class="small-3 columns">
+          <h6 class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></h6>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul class="small-block-grid-3 charts">
+    <li class="chart">
+      <%=link_to image_tag(@swell_data.swell_data['charts']['swell']), @swell_data.swell_data['charts']['swell']%>
+      <h6 class="text-center">Swell Height</h6>
+    </li>
+    <li class="chart">
+      <%=link_to image_tag(@swell_data.swell_data['charts']['period']), @swell_data.swell_data['charts']['period']%>
+      <h6 class="text-center">Swell Period</h6>
+    </li>
+    <li class="chart">
+      <%=link_to image_tag(@swell_data.swell_data['charts']['wind']), @swell_data.swell_data['charts']['wind']%>
+      <h6 class="text-center">Wind</h6>
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-6 columns">
+    <h6 class="div-bar">Actual Location:</h6>
+    <div class="map-container">
+      <%= content_tag :div, class: "map-canvas", id: "entry-location", data: {locations: [@entry], center: {lat: @entry.latitude, lng: @entry.longitude}, zoom: 7} do %>
+      <% end %>
+    </div>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <h6 class="div-bar">Photos:</h6>
+    <div class="owl-carousel content">
+      <% @photos.each do |photo| %>
+        <div><%= image_tag(photo.file_name) %></div>
+      <% end %>
+    </div>
     <%= form_for [@entry, @photo] do |f| %>
       <%= f.label :file_name, "Entry Photo" %>
       <%= f.file_field :file_name %><br />
       <%= f.submit "Add Photo", class: "button" %>
     <% end %>
-    <div class="owl-carousel">
-      <% @photos.each do |photo| %>
-        <div><%= image_tag(photo.file_name) %></div>
-      <% end %>
-    </div>
-  </div>
-  <div class="small-6 columns">
-    <div class="map-container">
-      <%= content_tag :div, class: "map-canvas", id: "entry-location", data: {locations: [@entry], center: {lat: @entry.latitude, lng: @entry.longitude}, zoom: 7} do %>
-      <% end %>
-    </div>
-    <p><%= @entry.body %></p>
   </div>
 </div>
