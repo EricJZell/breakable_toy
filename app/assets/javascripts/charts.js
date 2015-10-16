@@ -15,7 +15,7 @@ if ($('#activity-chart').length) {
             }
         },
         title: {
-            text: 'Acitivity'
+            text: ''
         },
         plotOptions: {
             column: {
@@ -38,7 +38,7 @@ if ($('#activity-chart').length) {
   });
 
 Highcharts.theme = {
-   colors: ["#2bAF8f"],
+   colors: ["#37becc"],
    chart: {
       backgroundColor: {
          linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
