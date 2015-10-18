@@ -17,6 +17,15 @@
  *= require owl.theme
 
  */
+
+$primary-color: #295575;
+$secondary-color: #2c82b6;
+$success-color: #477b85;
+$alert-color: #b75654;
+$shadow-color: #b1b1b1;
+$white: #ffffff;
+
+
 @import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One);
 
 .main-container {
@@ -25,52 +34,45 @@
 }
 
 .home-page {
-  background: url("/assets/GOPR6452.JPG");
+  background: url("/assets/IMG_6627.JPG");
   background-size: cover;
   height: 100%;
   width: 100%;
 }
 
 .welcome {
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid #ffffff;
   margin-top: 60px;
   padding: 0;
 }
 
 .home-font {
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
+  color: $white;
+  font-size: 4em;
+  font-weight: lighter;
   text-align: center;
 }
 
 .home-form {
-  color: #ffffff;
+  color: $white;
 }
 
 .entries {
-  background-color: #ffffff;
+  background-color: $white;
   list-style: none;
-  margin: 15px;
+  margin: 0 20px;
+  padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid #ccc;
 }
 
 .stats {
-  background-color: #ffffff;
-  text-align: center;
+  list-style: none;
   margin: 0;
-  padding: 0;
 }
 
 .map-container {
   height: 400px;
-  border-color: #fff;
-  border-style: solid;
-  box-shadow: 2px 2px 10px #B1B1B1;
-  border-width: 7px;
+  box-shadow: 5px 5px 5px $shadow-color;
  }
 
  .map-canvas {
@@ -79,7 +81,7 @@
  }
 
  .charts {
-   background-color: #ffffff;
+   background-color: $white;
    padding: 0px;
    margin: 0px;
  }
@@ -113,45 +115,60 @@ h5 {
 }
 
 .div-bar {
-  background-color: #37becc;
-  color: #ffffff;
+  background-color: $primary-color;
+  color: $white;
   padding: 10px;
   margin: 0px;
   margin-top: 15px;
+  box-shadow: 5px 5px 5px $shadow-color;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.div-bar a {
+  color: $alert-color;
 }
 
 .content {
-  background-color: #fff;
-  margin: 0;
-  padding: 7px;
-}
-
-#thumb {
-  margin-top: 10px;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-}
-
-#mini-thumb {
-  text-align: left;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  background-color: $white;
+  box-shadow: 5px 5px 5px $shadow-color;
+  margin: 0 0 30px;
+  padding: 0;
 }
 
 .user-index {
+  list-style: none;
   text-align: left;
-  display: inline-block;
+  margin: 0;
+  padding: 20px;
+}
+
+.user-name{
+  font-weight: bold;
+  font-size: 1em;
+  margin: 15px 0 0 0;
+}
+
+.user-preview {
+  padding-bottom: 15px;
+  border-bottom: 1px dotted $shadow-color;
 }
 
 .profile-photo {
+  border-radius: 50%;
   margin-top: 15px;
+  width: 100%;
+}
+
+.button {
+  margin: 15px;
+  padding: 20px;
 }
 
 .msw-swa /* Inherits from swell arrows */
 {
-   background: url("http://im-1.msw.ms/md/static/sa-sprite.png") no-repeat top left;
+  background: url("http://im-1.msw.ms/md/static/sa-sprite.png") no-repeat top left;
+  display: inline-block;
 }
 
 .msw-swa-10{ background-position: 0 0; width: 26px; height: 26px; }
