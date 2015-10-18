@@ -1,54 +1,69 @@
-<div class="row">
-  <div class="small-4 columns">
-    <%= image_tag(@user.profile_photo, class:'profile-photo') %>
-  </div>
-  <div class="small-8 columns">
-    <h3 class="title text-center div-bar">Welcome to @<%= @user.user_name %>'s profile!</h3>
-    <ul class="small-block-grid-2 stats medium-block-grid-4">
-      <li class="stats">
-        <p>Entries:</p>
-        <h4><%=@user.entries.length%></h4>
-      </li>
-      <li class="stats">
-        <p>Locations:</p>
-        <h4><%=@user.locations.uniq.length%></h4>
-      </li>
-      <li class="stats">
-        <p>Friends:</p>
-        <h4>2</h4>
-      </li>
-      <li class="stats">
-        <p>Photos:</p>
-        <h4><%=@user.photos.length%></h4>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="small-6 columns">
-    <div class="row">
-      <h6 class="div-bar">Travels:</h6>
-      <div class="map-container">
-        <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
-        <% end %>
-      </div>
-    </div><br>
-    <div class="row">
-      <% if @activity %>
-        <h6 class="div-bar">Activity:</h6>
-        <div id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
+<div class="row hidden"  style="display: none;">
+  <div class="small-8 small-centered columns">
+    <h3 class="div-bar text-center" id="hide-photos">Close Photos</h3>
+    <div class="owl-carousel content">
+      <% @photos.each do |photo| %>
+        <div><%= image_tag(photo.file_name) %></div>
       <% end %>
     </div>
   </div>
-  <div class="small-6 columns">
-    <h6 class="div-bar">Past Journal Entries:</h6>
-    <ul class="content">
-      <% @entries.each do |entry| %>
-        <li class="entries">
-          <h4><%= link_to entry.title, user_entry_path(@user, entry) %>: <%=entry.date %></h4>
-          <h6><%= "#{entry.location.name}, #{entry.country.name}, #{entry.region.name}"%></h6>
-        </li>
-      <% end %>
-    </ul>
+</div>
+<div class="profile">
+  <div class="row">
+    <div class="small-4 columns">
+
+    </div>
+    <div class="small-8 columns">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+      <div class="row">
+        <div class="small-6 columns">
+          <%= image_tag(@user.profile_photo, class:'profile-photo content') %>
+        </div>
+        <div class="small-6 columns">
+          <ul class="stats">
+            <li class="stats">
+              <h6>Entries: <%=@user.entries.length%></h6>
+            </li>
+            <li class="stats">
+              <h6>Locations: <%=@user.locations.uniq.length%></h6>
+            </li>
+            <li class="stats">
+              <h6>Friends: 2</h6>
+            </li>
+            <li class="stats">
+              <h6><%=link_to("Photos", '#', id:"show-hidden-photos")%>: <%=@user.photos.length%></h6>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <h6 class="div-bar">Travels:</h6>
+        <div class="map-container">
+          <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
+          <% end %>
+        </div>
+      </div><br>
+      <div class="row">
+        <% if @activity %>
+          <h6 class="div-bar">Activity:</h6>
+          <div class="content" id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="small-6 columns">
+      <h6 class="div-bar">Past Journal Entries:</h6>
+      <ul class="content">
+        <% @entries.each do |entry| %>
+          <li class="entries">
+            <h4><%= link_to entry.title, user_entry_path(@user, entry) %></h4>
+            <h6><%= "#{entry.date.strftime("%B %d, %Y")}, near #{entry.location.name}"%></h6>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

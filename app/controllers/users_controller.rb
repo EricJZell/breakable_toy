@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @entries = @user.entries.order(date: :desc)
+    @photos = @user.photos
     if @entries.any?
       @activity = get_activity(@entries)
     end
