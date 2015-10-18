@@ -18,6 +18,7 @@ gem 'nokogiri'
 gem 'json'
 gem 'owlcarousel-rails'
 gem 'httparty'
+gem 'kaminari'
 
 
 group :development, :test do
