@@ -38,7 +38,7 @@ if ($('#activity-chart').length) {
   });
 
   Highcharts.theme = {
-     colors: ["#dc14ff"],
+     colors: ["#2c82b6"],
      chart: {
         backgroundColor: {
            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
