@@ -6,14 +6,16 @@
   <div class="small-8 columns">
     <h3 class="title text-center div-bar"><%= @entry.title %></h3>
     <div class="content">
-      <h5><%= "Posted by @#{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h5>
-      <p><%= @entry.body %></p>
-      <% if current_user == @user %>
-        <h6>
-          <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
-          <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
-        </h6>
-      <% end %>
+      <div class="journal">
+        <h5><%= "Posted by @#{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h5>
+        <p><%= @entry.body %></p>
+        <% if current_user == @user %>
+          <h6>
+            <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
+            <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
+          </h6>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

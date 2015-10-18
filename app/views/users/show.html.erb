@@ -10,17 +10,11 @@
 </div>
 <div class="profile">
   <div class="row">
-    <div class="small-4 columns">
-
-    </div>
-    <div class="small-8 columns">
-
-    </div>
-  </div>
-  <div class="row">
     <div class="small-6 columns">
       <div class="row">
         <div class="small-6 columns">
+          <h4 class="user-name"><strong>@<%=@user.user_name%></strong></h4>
+          <h4 class="name">(<%=@user.full_name%>)</h4>
           <%= image_tag(@user.profile_photo, class:'profile-photo content') %>
         </div>
         <div class="small-6 columns">

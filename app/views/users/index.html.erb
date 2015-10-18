@@ -21,6 +21,7 @@
             <div class="small-6 columns">
               <h4 class="user-name"><%= link_to "@#{user.user_name}", user%></h4>
               <p>(<%=user.full_name%>)</p>
+              <p><%=user.entries.length%> entries</p>
             </div>
             <div class="small-3 columns">
               <%= form_for @friendship do |f| %>
