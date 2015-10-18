@@ -18,9 +18,11 @@
 
  */
 
- $primary-color: #00bedb;
+ $primary-color: #09B1D8;
+ $secondary-color: #d6dfe9;
+ $success-color: #03e53f;
  $alert-color: #B75654;
- $secondary-color: #2c82b6;
+
 
 @import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One);
 
@@ -64,8 +66,6 @@
 .stats {
   list-style: none;
   margin: 0;
-  padding: 0;
-  padding: 20px 0 0 0;
 }
 
 .map-container {
@@ -119,6 +119,12 @@ h5 {
   margin: 0px;
   margin-top: 15px;
   box-shadow: 5px 5px 5px #b1b1b1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.div-bar a {
+  color: $secondary-color;
 }
 
 .content {
@@ -155,7 +161,8 @@ h5 {
 
 .msw-swa /* Inherits from swell arrows */
 {
-   background: url("http://im-1.msw.ms/md/static/sa-sprite.png") no-repeat top left;
+  display: inline-block;
+  background: url("http://im-1.msw.ms/md/static/sa-sprite.png") no-repeat top left;
 }
 
 .msw-swa-10{ background-position: 0 0; width: 26px; height: 26px; }

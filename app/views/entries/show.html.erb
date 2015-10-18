@@ -23,41 +23,29 @@
   <div class="content">
     <ul class="small-block-grid-2 medium-block-grid-4 stats">
       <li>
-          <h6>Wave Height</h6>
-          <h4><%=@swell_data.wave_height%>ft</h4>
+          <h6 class="text-center">Wave Height</h6>
+          <h4 class="text-center"><%=@swell_data.wave_height%>ft</h4>
       </li>
       <li>
-        <h6>Primary Swell</h6>
-        <div class="row">
-          <div class="small-8 text-right columns">
-            <h4><%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s<h4>
-          </div>
-          <div class="small-4 columns">
-            <h4 class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></h4>
-          </div>
-        </div>
+        <h6 class="text-center">Primary Swell</h6>
+        <h4 class="text-center">
+          <%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s
+          <a class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></a>
+        </h4>
       </li>
       <li>
-        <h6>Secondary Swell</h6>
-        <div class="row">
-          <div class="small-9 text-right columns">
-            <h4><%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s<h4>
-          </div>
-          <div class="small-3 columns">
-            <h4 class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></h4>
-          </div>
-        </div>
+        <h6 class="text-center">Secondary Swell</h6>
+        <h4 class="text-center">
+          <%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s
+          <a class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></a>
+        </h4>
       </li>
       <li>
-        <h6>Wind</h6>
-        <div class="row">
-          <div class="small-9 text-right columns">
-            <h4><%=@swell_data.wind_speed%>mph<h4>
-          </div>
-          <div class="small-3 columns">
-            <h4 class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></h4>
-          </div>
-        </div>
+        <h6 class="text-center">Wind</h6>
+        <h4 class="text-center">
+          <%=@swell_data.wind_speed%>mph
+          <a class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></a>
+        </h4>
       </li>
     </ul>
     <ul class="small-block-grid-3 charts">

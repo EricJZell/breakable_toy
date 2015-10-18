@@ -1,6 +1,6 @@
 <div class="row hidden"  style="display: none;">
   <div class="small-8 small-centered columns">
-    <h3 class="div-bar text-center" id="hide-photos">Close Photos</h3>
+    <h6 class="div-bar text-right"><%=link_to("X", '#', id:"hide-photos")%></h6>
     <div class="owl-carousel content">
       <% @photos.each do |photo| %>
         <div><%= image_tag(photo.file_name) %></div>
@@ -26,16 +26,16 @@
         <div class="small-6 columns">
           <ul class="stats">
             <li class="stats">
-              <h6>Entries: <%=@user.entries.length%></h6>
+              <h6 class="div-bar">Entries: <%=@user.entries.length%></h6>
             </li>
             <li class="stats">
-              <h6>Locations: <%=@user.locations.uniq.length%></h6>
+              <h6 class="div-bar">Locations: <%=@user.locations.uniq.length%></h6>
             </li>
             <li class="stats">
-              <h6>Friends: 2</h6>
+              <h6 class="div-bar">Friends: 2</h6>
             </li>
             <li class="stats">
-              <h6><%=link_to("Photos", '#', id:"show-hidden-photos")%>: <%=@user.photos.length%></h6>
+              <h6 class="div-bar"><%=link_to("Photos:  #{@user.photos.length}", '#', id:"show-hidden-photos")%></h6>
             </li>
           </ul>
         </div>
