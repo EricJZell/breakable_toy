@@ -1,12 +1,11 @@
 <div class="row">
   <div class="row">
     <div class="small-centered small-8 columns">
-      <div class="large-8 small-9 columns">
-        <input type="text" name="search" id="search" placeholder="Search Users">
-      </div>
-      <div class="large-4 small-3 columns">
-        <input type="submit" name="commit" value="Search" class="alert button small">
-      </div>
+      <%= form_tag("/users", method: "get") do %>
+        <%= label_tag(:q, "Search Users:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search", class:"button small alert") %>
+      <% end %>
     </div>
   </div>
   <div class="small-8 small-centered columns">
