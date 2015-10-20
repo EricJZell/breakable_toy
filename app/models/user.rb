@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def self.search(search)
+    where('user_name ILIKE ?', "%#{search}%")
+  end
 end
