@@ -26,7 +26,7 @@
               <h6 class="div-bar">Locations: <%=@user.locations.uniq.length%></h6>
             </li>
             <li class="stats">
-              <h6 class="div-bar">Friends: 2</h6>
+              <h6 class="div-bar">Friends: <%=@user.friends.length %></h6>
             </li>
             <li class="stats">
               <h6 class="div-bar"><%=link_to("Photos:  #{@user.photos.length}", '#', id:"show-hidden-photos")%></h6>
