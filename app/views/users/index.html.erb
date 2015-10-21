@@ -2,9 +2,13 @@
   <div class="row">
     <div class="small-centered small-8 columns">
       <%= form_tag("/users", method: "get") do %>
-        <%= label_tag(:q, "Search Users:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search", class:"button small alert") %>
+        <div class="small-8 columns">
+          <%= label_tag(:q, "Search Users:") %>
+          <%= text_field_tag(:q) %>
+        </div>
+        <div class="small-4 columns">
+          <%= submit_tag("Search", class:"button small alert") %>
+        </div>
       <% end %>
     </div>
   </div>
