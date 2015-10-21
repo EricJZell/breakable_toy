@@ -1,7 +1,7 @@
 module Helpers
   def sign_in(user)
     visit root_path
-    click_link 'Sign In'
+    click_link 'top-bar-sign-in'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
