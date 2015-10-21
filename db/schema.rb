@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20151014185417) do
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "requestor_id",                 null: false
-    t.integer "requestee_id",                 null: false
-    t.boolean "accepted",     default: false, null: false
+    t.integer "user_id",                   null: false
+    t.integer "friend_id",                 null: false
+    t.boolean "accepted",  default: false, null: false
   end
 
   create_table "locations", force: :cascade do |t|
