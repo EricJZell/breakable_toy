@@ -29,6 +29,10 @@ The app is very convenient to use: All it takes is one click for a user to creat
 
   ![Photo Carousel](http://i.imgur.com/wLLDzwo.png)
 
+* Google maps is used to give a visual display of a user's travels
+
+  ![User Travel Summary](http://i.imgur.com/vKQqHoO.png)
+
 ## Development
 
 Swell Journal was built with Ruby on Rails following Test Driven Development practices. RSpec test suite was used with Capybara. It uses PostgreSQL as the database management system . The app is deployed on Heroku. JavaScript features include Google Maps, Highcharts, a photo-carousel, and dynamic drop-down lists with AJAX.
