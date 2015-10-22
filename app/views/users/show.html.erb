@@ -10,11 +10,26 @@
 </div>
 <div class="profile">
   <div class="row">
+    <% if (current_user == @user) && (@user.requested_friendships.length > 0) %>
+        <h4>Friend Requests:</h4>
+        <ul>
+            <% @user.requested_friendships.each do |request| %>
+            <li>
+              <%= "From: @#{request.user_name}" %>
+              <%= link_to "Accept", friendship_path(:id => request), method: "put", class:"button small succes" %>
+              <%= link_to "Decline", friendship_path(:id => request), method: :delete, class:"button small alert" %>
+            </li>
+          <% end %>
+        </ul>
+    <% end %>
     <div class="small-6 columns">
       <div class="row">
         <div class="small-6 columns">
           <h4 class="user-name"><strong>@<%=@user.user_name%></strong></h4>
           <h4 class="name">(<%=@user.full_name%>)</h4>
+          <% unless current_user == @user %>
+            <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+          <% end %>
           <%= image_tag(@user.profile_photo, class:'profile-photo content') %>
         </div>
         <div class="small-6 columns">
@@ -26,7 +41,7 @@
               <h6 class="div-bar">Locations: <%=@user.locations.uniq.length%></h6>
             </li>
             <li class="stats">
-              <h6 class="div-bar">Friends: <%=@user.friends.length%></h6>
+              <h6 class="div-bar"><%= link_to("Friends: #{@user.friends.length}", users_path(id: @user.id)) %></h6>
             </li>
             <li class="stats">
               <h6 class="div-bar"><%=link_to("Photos:  #{@user.photos.length}", '#', id:"show-hidden-photos")%></h6>

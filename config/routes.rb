@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:index]
   resources :countries, only: [:index]
-  resources :friendships, only: [:create, :update]
+  resources :friendships, only: [:create, :update, :destroy]
 end
