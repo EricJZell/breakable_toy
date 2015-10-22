@@ -3,7 +3,6 @@
 == README
 
 ## SWELL JOURNAL
-
 [Visit Swell Journal](https://morning-peak-3297.herokuapp.com/)
 
 Swell Journal is a travel journal specifically for surfing. It differs from a typical travel journal in that it pulls in real-time weather data and real-time oceanographic date from a 3rd party API to create a snap-shot of the conditions
