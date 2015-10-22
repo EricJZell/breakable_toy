@@ -13,13 +13,14 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-  @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
-  @friendship.update(accepted: true)
+    @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
+    @friendship.update(accepted: true)
     if @friendship.save
-      redirect_to user_path(current_user), :notice => "Successfully confirmed friend!"
+      flash[:success] = "Successfully confirmed friend!"
     else
-      redirect_to root_url, :notice => "Sorry! Could not confirm friend!"
+      flash[:error] = "Sorry! Could not confirm friend!"
     end
+    redirect_to user_path(current_user)
   end
 
   # DELETE /friendships/1
