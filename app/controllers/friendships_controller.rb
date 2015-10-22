@@ -1,4 +1,9 @@
 class FriendshipsController < ApplicationController
+  def index
+    @user = User.find(params[:id])
+    @friends = @user.friends
+  end
+
   def create
     @friendship = current_user.friendships.build(
       friend_id: params[:friend_id], accepted: "false"
@@ -12,8 +17,6 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /friendships/1
-  # PATCH/PUT /friendships/1.json
   def update
     @friendship = Friendship.where(
       friend_id: current_user, user_id: params[:id]
@@ -27,8 +30,6 @@ class FriendshipsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  # DELETE /friendships/1
-  # DELETE /friendships/1.json
   def destroy
     @friendship = Friendship.where(
       friend_id: [current_user, params[:id]]
