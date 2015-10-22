@@ -30,7 +30,9 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
-    @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
+    @friendship = Friendship.where(
+      friend_id: [current_user, params[:id]]
+    ).where(user_id: [current_user, params[:id]]).last
     @friendship.destroy
     flash[:notice] = "Friendship declined."
     redirect_to :back
