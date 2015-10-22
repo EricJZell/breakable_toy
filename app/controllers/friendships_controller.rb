@@ -1,6 +1,8 @@
 class FriendshipsController < ApplicationController
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id], accepted: "false")
+    @friendship = current_user.friendships.build(
+      friend_id: params[:friend_id], accepted: "false"
+    )
     if @friendship.save
       flash[:notice] = "Friend requested."
       redirect_to :back
@@ -13,7 +15,9 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
-    @friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
+    @friendship = Friendship.where(
+      friend_id: current_user, user_id: params[:id]
+    ).first
     @friendship.update(accepted: true)
     if @friendship.save
       flash[:success] = "Successfully confirmed friend!"
