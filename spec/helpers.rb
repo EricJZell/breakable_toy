@@ -6,4 +6,22 @@ module Helpers
     fill_in 'Password', with: user.password
     click_button 'Log in'
   end
+
+  def create_friendship(user1, user2)
+    sign_in(user1)
+    visit(user_path(user2))
+    click_link("Add Friend")
+    click_link("Sign Out")
+    sign_in(user2)
+    click_link("Accept")
+  end
+
+  def decline_friendship(user1, user2)
+    sign_in(user1)
+    visit(user_path(user2))
+    click_link("Add Friend")
+    click_link("Sign Out")
+    sign_in(user2)
+    click_link("Decline")
+  end
 end
