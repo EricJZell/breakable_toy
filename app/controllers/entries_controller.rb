@@ -67,7 +67,7 @@ class EntriesController < ApplicationController
 
   def verify_access(owner, viewer)
     unless owner.friends.include?(viewer) || owner == viewer
-      flash[:error] = "You must be friends to access this section"
+      flash[:warning] = "You must be friends to access this section"
       redirect_to user_path(owner)
     end
   end
