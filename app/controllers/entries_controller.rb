@@ -3,6 +3,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @user = @entry.user
+    verify_access(@user, current_user)
     @photos = @entry.photos
     @swell_data = @entry.swell_models[0]
     @photo = Photo.new
@@ -64,4 +65,10 @@ class EntriesController < ApplicationController
     )
   end
 
+  def verify_access(owner, viewer)
+    unless owner.friends.include?(viewer) || owner == viewer
+      flash[:error] = "You must be friends to access this section"
+      redirect_to user_path(owner)
+    end
+  end
 end
