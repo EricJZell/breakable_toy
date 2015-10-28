@@ -27,8 +27,10 @@
               <p><%=user.entries.length%> entries</p>
             </div>
             <div class="small-3 columns">
-              <%= form_for @friendship do |f| %>
-                <%= f.submit "Add Friend", class:"button small round" %>
+              <% if current_user %>
+                <% unless current_user == user %>
+                  <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+                <% end %>
               <% end %>
             </div>
           </div>
