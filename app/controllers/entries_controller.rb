@@ -20,8 +20,8 @@ class EntriesController < ApplicationController
     @user = current_user
     @entry.user = @user
     swell_data = HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")
-    if (@entry.save && swell_data.code == 200)
-      SwellModel.create(entry: @entry, swell_data: swell_data[0] )
+    if @entry.save && swell_data.code == 200
+      SwellModel.create(entry: @entry, swell_data: swell_data[0])
       flash[:success] = 'New journal entry created!'
       redirect_to user_entry_path(@user, @entry)
     else
