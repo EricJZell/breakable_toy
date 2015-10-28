@@ -19,13 +19,19 @@ class EntriesController < ApplicationController
     @entry.set_location
     @user = current_user
     @entry.user = @user
-    if @entry.save
-      SwellModel.create(entry: @entry, swell_data: HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")[0])
+    swell_data = HTTParty.get("http://magicseaweed.com/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{@entry.location.msw_id}")
+    if (@entry.save && swell_data.code == 200)
+      SwellModel.create(entry: @entry, swell_data: swell_data[0] )
       flash[:success] = 'New journal entry created!'
       redirect_to user_entry_path(@user, @entry)
     else
-      flash[:alert] = @entry.errors.full_messages.join(', ')
-      render :new
+      if swell_data.code != 200
+        flash[:alert] = "Sorry, swell and weather data not available at this time!"
+        redirect_to user_path(@user)
+      else
+        flash[:alert] = @entry.errors.full_messages.join(', ')
+        render :new
+      end
     end
   end
 
