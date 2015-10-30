@@ -22,9 +22,9 @@
           <% end %>
         </ul>
     <% end %>
-    <div class="small-6 columns">
+    <div class="small-12 medium-6 columns">
       <div class="row">
-        <div class="small-6 columns">
+        <div class="small-7 columns">
           <h4 class="user-name"><strong>@<%=@user.user_name%></strong></h4>
           <h4 class="name">(<%=@user.full_name%>)</h4>
           <% unless current_user == @user %>
@@ -32,7 +32,7 @@
           <% end %>
           <%= image_tag(@user.profile_photo, class:'profile-photo content') %>
         </div>
-        <div class="small-6 columns">
+        <div class="small-5 columns">
           <ul class="stats">
             <li class="stats">
               <h6 class="div-bar">Entries: <%=@user.entries.length%></h6>
@@ -63,7 +63,7 @@
         <% end %>
       </div>
     </div>
-    <div class="small-6 columns">
+    <div class="small-12 medium-6 columns">
       <h6 class="div-bar">Past Journal Entries:</h6>
       <ul class="content">
         <% @entries.each do |entry| %>
