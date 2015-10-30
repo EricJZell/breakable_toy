@@ -163,9 +163,17 @@ h5 {
 }
 
 .profile-photo {
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   margin: 15px 0;
-  width: 100%;
+}
+
+.thumb-photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 15px 0;
 }
 
 .button {
