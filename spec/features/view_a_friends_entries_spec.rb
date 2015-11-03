@@ -22,7 +22,7 @@ feature 'view a friends journal entry', %{
     visit user_path(user2)
     click_link entry.title
     expect(page).to have_content(entry.body)
-    expect(page).to have_content(entry.date)
+    expect(page).to have_content(entry.date.strftime("%B %d, %Y"))
     expect(page).to have_content(entry.location.name)
   end
 
