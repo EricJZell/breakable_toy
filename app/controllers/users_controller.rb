@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    if params[:q]
-      @users = User.search(params[:q]).page(params[:page]).per(5)
+    if params[:search]
+      @users = User.search(params[:search]).page(params[:page]).per(5)
     else
       @users = User.page(params[:page]).per(5)
     end

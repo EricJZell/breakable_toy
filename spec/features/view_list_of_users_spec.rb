@@ -14,7 +14,7 @@ feature 'user visits profile page', %{
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     visit root_path
-    click_link 'Search Users'
+    click_button 'Search'
     expect(current_path).to eq("/users")
     expect(page).to have_content(user1.user_name)
     expect(page).to have_content(user2.user_name)
