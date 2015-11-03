@@ -5,7 +5,9 @@ FactoryGirl.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
-    sequence(:user_name) { |n| "Tony#{n}" }
+    first_name 'Tony'
+    sequence(:last_name) { |n| "Smith#{n}" }
+    sequence(:user_name) { |n| "BigT#{n}" }
   end
 
   factory :location do
