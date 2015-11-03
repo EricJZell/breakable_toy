@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014185417) do
+ActiveRecord::Schema.define(version: 20151103184230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "countries", force: :cascade do |t|
-    t.string  "name"
-    t.integer "region_id"
-  end
 
   create_table "entries", force: :cascade do |t|
     t.integer  "user_id",        null: false
@@ -31,8 +26,6 @@ ActiveRecord::Schema.define(version: 20151014185417) do
     t.date     "date",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "country_id",     null: false
-    t.integer  "region_id",      null: false
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -45,7 +38,6 @@ ActiveRecord::Schema.define(version: 20151014185417) do
 
   create_table "locations", force: :cascade do |t|
     t.string  "name",        null: false
-    t.integer "country_id",  null: false
     t.integer "msw_id",      null: false
     t.string  "description"
     t.float   "lat",         null: false
@@ -56,10 +48,6 @@ ActiveRecord::Schema.define(version: 20151014185417) do
   create_table "photos", force: :cascade do |t|
     t.integer "entry_id",  null: false
     t.string  "file_name", null: false
-  end
-
-  create_table "regions", force: :cascade do |t|
-    t.string "name", null: false
   end
 
   create_table "swell_models", force: :cascade do |t|

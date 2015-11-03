@@ -5,15 +5,11 @@ class Entry < ActiveRecord::Base
   validates :date, presence: true
   belongs_to :user
   belongs_to :location
-  belongs_to :country
-  belongs_to :region
   has_many :photos, dependent: :destroy
   has_many :swell_models, dependent: :destroy
 
   def set_location
     self.location = find_nearest_location(latitude, longitude)
-    self.country = location.country
-    self.region = country.region
   end
 
   def find_nearest_location(lat1, lon1)

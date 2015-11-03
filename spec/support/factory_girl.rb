@@ -8,18 +8,8 @@ FactoryGirl.define do
     sequence(:user_name) { |n| "Tony#{n}" }
   end
 
-  factory :region do
-    sequence(:name) { |n| "Europe#{n}" }
-  end
-
-  factory :country do
-    sequence(:name) { |n| "Azores#{n}" }
-    region
-  end
-
   factory :location do
     name 'Agua de Alto'
-    country
     msw_id 3842
     lat 37.7163
     lon -25.4736
@@ -30,8 +20,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "Wicked good #{n}" }
     user
     location
-    country
-    region
     date Time.zone.today
     body 'yewwww'
   end

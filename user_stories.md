@@ -86,12 +86,6 @@ Acceptance Criteria:
 - I must only be able to add photos to my own entries
 - I must be able to view photos from the journal entry's details page
 
-As a user
-I want to view a list of locations
-Where swell model data is available
-- I must see region, country, and spot name
-- I must be able to search for specific locations
-
 As an authenticated user
 I want to be able to favorite locations
 So that  I can access their information more easily
