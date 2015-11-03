@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
       flash[:notice] = "Friend requested."
       redirect_to :back
     else
-      flash[:error] = "Unable to request friendship."
+      flash[:warning] = @friendship.errors.full_messages.join(', ')
       redirect_to :back
     end
   end
