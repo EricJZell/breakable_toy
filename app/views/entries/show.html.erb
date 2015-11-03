@@ -7,7 +7,7 @@
     <h3 class="title text-center div-bar"><%= @entry.title %></h3>
     <div class="content">
       <div class="journal">
-        <h5><%= "Posted by @#{@user.user_name} on #{@entry.date}, near #{@entry.location.name}"%></h5>
+        <h5><%= "Posted by @#{@user.user_name} on #{@entry.date.strftime("%B %d, %Y")}, near #{@entry.location.name}"%></h5>
         <p><%= @entry.body %></p>
         <% if current_user == @user %>
           <h6>
