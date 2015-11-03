@@ -1,0 +1,47 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/"><strong>SWELL</strong>JOURNAL</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="has-form">
+        <form id="search-form" action="/users" accept-charset="UTF-8" method="get">
+          <div class="row collapse">
+            <input name="utf8" type="hidden" value="✓">
+            <div class="large-8 small-9 columns">
+              <input type="text" name="search" id="search" placeholder="Search Users">
+            </div>
+            <div class="large-4 small-3 columns">
+              <input type="submit" name="commit" value="Search" class="alert button expand">
+            </div>
+          </div>
+        </form>
+      </li>
+      <li class="has-dropdown">
+        <% if current_user %>
+          <a href="#"><strong>@<%= current_user.user_name %> </strong></a>
+          <ul class="dropdown">
+            <li><%= link_to 'New Journal Entry', new_user_entry_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "View Your Profile", current_user %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Edit Your User Profile', edit_user_registration_path, method: :get %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <a href="#">Have an account?</a>
+          <ul class="dropdown">
+            <li><%= link_to 'Sign Up', new_user_registration_path, id:"top-bar-sign-up" %></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Sign In', new_user_session_path, id:"top-bar-sign-in" %></li>
+          </ul>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+</nav>

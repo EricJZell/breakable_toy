@@ -7,31 +7,13 @@
 
 </head>
 <body>
-
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/"><strong>Swell</strong>Journal</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <li><%= link_to 'Search Users', users_path %></li>
-        <%- if current_user -%>
-          <li><%= link_to 'New Journal Entry', new_user_entry_path(current_user) %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "View Your Profile", current_user %></li>
-          <li><%= link_to 'Edit Your User Profile', edit_user_registration_path, method: :get %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path, id:"top-bar-sign-up" %></li>
-          <li><%= link_to 'Sign In', new_user_session_path, id:"top-bar-sign-in" %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
-
-
+  <div class="contain-to-grid">
+    <div class="row">
+      <div class="small-12 small-centered columns">
+        <%= render 'layouts/top_bar' %>
+      </div>
+    </div>
+  </div>
   <div class="main-container">
     <%- flash.each do |key, value| -%>
       <div class="alert-box <%=key%>">
