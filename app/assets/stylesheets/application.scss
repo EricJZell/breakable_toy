@@ -118,10 +118,6 @@ h5 {
   padding: 10px;
 }
 
-.big-button {
-  margin: 40px;
-}
-
 .div-bar {
   background-color: $primary-color;
   color: $white;
@@ -182,6 +178,10 @@ h5 {
 .journal {
   margin: 0;
   padding: 10px;
+}
+
+.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
+  background: $primary-color;
 }
 
 .msw-swa /* Inherits from swell arrows */
