@@ -6,7 +6,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     first_name 'Tony'
-    sequence(:last_name) { |n| "Smith#{n}"}
+    sequence(:last_name) { |n| "Smith#{n}" }
     sequence(:user_name) { |n| "BigT#{n}" }
   end
 
