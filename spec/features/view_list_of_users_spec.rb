@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user visits profile page', %{
+feature 'user views list of all users', %{
   As a user
   I want to view a list of other users
   So that I can look for people I may know
