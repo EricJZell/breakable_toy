@@ -7,10 +7,13 @@ if($("#quick-entry").length){
       $(".button").show();
       $(".loading").hide();
     }, function(positionError) {
+      $(".loading").text(
+        "Browser denied access to location data. Turn on location services for\
+         your browser to use the quick-entry feature.");
       alert(positionError.message)
     });
   }
   else {
-    alert("Sorry, this app is not supported by your broswer");
+    alert("Sorry, geolocation is not supported by your broswer");
   }
 }

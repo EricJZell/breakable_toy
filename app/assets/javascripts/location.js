@@ -2,43 +2,30 @@ function getLocation() {
   var initialLocation;
   var siberia = new google.maps.LatLng(60, 105);
   var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
-  var browserSupportFlag =  new Boolean();
   var myOptions = {
     zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("current-location"), myOptions);
-  // Try W3C Geolocation (Preferred)
+  var marker = new google.maps.Marker( {position: newyork, map: map} );
   if(navigator.geolocation) {
-    browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       $("#entry_latitude").val(initialLocation.lat());
       $("#entry_longitude").val(initialLocation.lng());
       map.setCenter(initialLocation);
-      marker = new google.maps.Marker( {position: initialLocation, map: map} );
-      marker.setMap( map );
+      marker.setPosition(initialLocation);
     }, function(positionError) {
+      map.setCenter(newyork);
       alert(positionError.message);
-      handleNoGeolocation(browserSupportFlag);
     });
 
   }
-  // Browser doesn't support Geolocation
   else {
-    browserSupportFlag = false;
-    handleNoGeolocation(browserSupportFlag);
+    map.setCenter(newyork);
+    alert("Sorry, geolocation is not supported by your browser")
   }
-  function handleNoGeolocation(errorFlag) {
-    if (errorFlag == true) {
-      alert("Geolocation service failed.");
-      initialLocation = newyork;
-    } else {
-      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-      initialLocation = siberia;
-    }
-    map.setCenter(initialLocation);
-  }
+
   var styles = [
     {
       featureType: "road",
@@ -69,6 +56,7 @@ function getLocation() {
     }
   ];
 
+  marker.setMap( map );
   map.setOptions({styles: styles});
   google.maps.event.addListener(map, "click", function (event) {
     var latitude = event.latLng.lat();
@@ -76,7 +64,7 @@ function getLocation() {
     marker.setPosition( new google.maps.LatLng( latitude, longitude ) );
     $("#entry_latitude").val(latitude);
     $("#entry_longitude").val(longitude);
-  }); //end addListener
+  });
 }
 if($("#current-location").length){
   google.maps.event.addDomListener(window, "load", getLocation);
