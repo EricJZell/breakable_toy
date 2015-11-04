@@ -9,7 +9,7 @@
       <div class="journal">
         <h5><%= "Posted by @#{@user.user_name} on #{@entry.date.strftime("%B %d, %Y")}, near #{@entry.location.name}"%></h5>
         <p><%= @entry.body %></p>
-        <% if current_user == @user %>
+        <% if current_user == @user || current_user.admin? %>
           <h6>
             <%= link_to 'Edit Entry', edit_user_entry_path(@user, @entry) %> |
             <%= link_to 'Delete Entry', user_entry_path(@user, @entry), method: :delete %>
