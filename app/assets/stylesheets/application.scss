@@ -28,16 +28,10 @@ $white: #ffffff;
 
 @import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One);
 
-.main-container {
-  height: 100%;
-  width: 100%;
-}
-
 .home-page {
   background: url("/assets/IMG_6627.JPG");
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  min-height: 700px;
 }
 
 .welcome {
@@ -60,22 +54,17 @@ $white: #ffffff;
   margin-top: 0;
 }
 
-.home-form {
-  color: $white;
-}
-
 .entries {
   background-color: $white;
+  padding: 5px;
   list-style: none;
-  margin: 0 20px;
-  padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid #ccc;
 }
 
 .stats {
   list-style: none;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .map-container {
@@ -109,7 +98,6 @@ h6 {
 h5 {
   font-weight: bold;
   font-size: .8em;
-  margin-top: 0px;
 }
 
 .title {
@@ -122,8 +110,7 @@ h5 {
   background-color: $primary-color;
   color: $white;
   padding: 10px;
-  margin: 0px;
-  margin-top: 15px;
+  margin: 15px 0 0 0;
   box-shadow: 5px 5px 5px $shadow-color;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -136,42 +123,46 @@ h5 {
 .content {
   background-color: $white;
   box-shadow: 5px 5px 5px $shadow-color;
-  margin: 0 0 30px;
+  margin: 0;
   padding: 0;
 }
 
 .user-index {
   list-style: none;
   text-align: left;
-  margin: 0;
   padding: 20px;
 }
 
-.user-name {
+.profile-name {
+  margin-top: 15px;
   font-weight: bold;
   font-size: 1em;
-  margin: 15px 0 0 0;
+}
+
+.user-name {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .user-preview {
   border-bottom: 1px dotted $shadow-color;
-  padding-bottom: 15px;
+  padding: 10px;
 }
 
 .profile-photo {
+  margin-top: 15px;
   border-radius: 8px;
-  margin: 15px 0;
   max-width: 100%;
 }
 
 .thumb-photo {
   border-radius: 5px;
-  margin: 15px 0;
   max-width: 100%;
 }
 
 .name {
-  margin: 0;
+  margin: -10px 0;
   padding: 0;
 }
 
@@ -182,6 +173,11 @@ h5 {
 
 .top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
   background: $primary-color;
+}
+
+.inline-list {
+  display: table;
+  margin: 4px auto;
 }
 
 .msw-swa /* Inherits from swell arrows */

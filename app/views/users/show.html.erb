@@ -16,8 +16,8 @@
             <% @user.requested_friendships.each do |request| %>
             <li>
               <%= "From: @#{request.user_name}" %>
-              <%= link_to "Accept", friendship_path(:id => request), method: "put", class:"button small succes" %>
-              <%= link_to "Decline", friendship_path(:id => request), method: :delete, class:"button small alert" %>
+              <%= link_to "Accept", friendship_path(id: request), method: :put, class:"button small succes" %>
+              <%= link_to "Decline", friendship_path(id: request), method: :delete, class:"button small alert" %>
             </li>
           <% end %>
         </ul>
@@ -25,11 +25,15 @@
     <div class="small-12 medium-6 columns">
       <div class="row">
         <div class="small-7 columns">
-          <h4 class="user-name"><strong>@<%=@user.user_name%></strong></h4>
+          <h4 class="profile-name">
+            @<%=@user.user_name%>
+            <% if @relation %>
+              <%= link_to @relation, "#", class:"button success small" %>
+            <% else %>
+              <%= link_to "Add Friend", friendships_path(friend_id: @user), method: :post, class:"button small" %>
+            <% end %>
+          </h4>
           <h4 class="name">(<%=@user.full_name%>)</h4>
-          <% unless current_user == @user %>
-            <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
-          <% end %>
           <%= image_tag(@user.profile_photo, class:'profile-photo content') %>
         </div>
         <div class="small-5 columns">
