@@ -84,10 +84,12 @@
         <div><%= image_tag(photo.file_name) %></div>
       <% end %>
     </div>
-    <%= form_for [@entry, @photo] do |f| %>
-      <%= f.label :file_name, "Entry Photos" %>
-      <%= f.file_field :file_name %><br />
-      <%= f.submit "Add Photo", class: "button" %>
+    <% if current_user == @user %>
+      <%= form_for [@entry, @photo] do |f| %>
+        <%= f.label :file_name, "Entry Photos" %>
+        <%= f.file_field :file_name %><br />
+        <%= f.submit "Add Photo", class: "button" %>
+      <% end %>
     <% end %>
   </div>
 </div>
