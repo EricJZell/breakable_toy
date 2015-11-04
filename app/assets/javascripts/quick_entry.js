@@ -1,7 +1,6 @@
 if($("#quick-entry").length){
   var initialLocation;
   if(navigator.geolocation) {
-    browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       $("#entry_latitude").val(position.coords.latitude);
       $("#entry_longitude").val(position.coords.longitude);
