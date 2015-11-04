@@ -54,17 +54,21 @@
         </div>
       </div>
       <div class="row">
-        <h6 class="div-bar">Travels:</h6>
-        <div class="map-container">
-          <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
-          <% end %>
+        <div class="small-12 small-centered columns">
+          <h6 class="div-bar">Travels:</h6>
+          <div class="map-container">
+            <%= content_tag :div, id: "entry-location", class: "map-canvas", data: {locations: @user.entries, center: {lat: 0, lng: 0}, zoom: 1} do %>
+            <% end %>
+          </div>
         </div>
       </div><br>
       <div class="row">
-        <% if @activity %>
-          <h6 class="div-bar">Activity:</h6>
-          <div class="content" id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
-        <% end %>
+        <div class="small-12 small-centered columns">
+          <% if @activity %>
+            <h6 class="div-bar">Activity:</h6>
+            <div class="content" id="activity-chart" style="width:100%; height:400px;" data-months="<%=@activity[:months]%>" data-sessions="<%=@activity[:sessions]%>"></div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="small-12 medium-6 columns">
