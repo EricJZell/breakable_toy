@@ -21,49 +21,51 @@
 </div>
 
 <div class="row">
-  <h6 class="div-bar">Snapshot of Conditions</h6>
-  <div class="content">
-    <ul class="small-block-grid-2 medium-block-grid-4 stats">
-      <li>
-          <h6 class="text-center">Wave Height</h6>
-          <h4 class="text-center"><%=@swell_data.wave_height%>ft</h4>
-      </li>
-      <li>
-        <h6 class="text-center">Primary Swell</h6>
-        <h4 class="text-center">
-          <%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s
-          <a class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></a>
-        </h4>
-      </li>
-      <li>
-        <h6 class="text-center">Secondary Swell</h6>
-        <h4 class="text-center">
-          <%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s
-          <a class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></a>
-        </h4>
-      </li>
-      <li>
-        <h6 class="text-center">Wind</h6>
-        <h4 class="text-center">
-          <%=@swell_data.wind_speed%>mph
-          <a class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></a>
-        </h4>
-      </li>
-    </ul>
-    <ul class="small-block-grid-3 charts">
-      <li class="chart">
-        <%=link_to image_tag(@swell_data.swell_data['charts']['swell']), @swell_data.swell_data['charts']['swell']%>
-        <h6 class="text-center">Swell Height</h6>
-      </li>
-      <li class="chart">
-        <%=link_to image_tag(@swell_data.swell_data['charts']['period']), @swell_data.swell_data['charts']['period']%>
-        <h6 class="text-center">Swell Period</h6>
-      </li>
-      <li class="chart">
-        <%=link_to image_tag(@swell_data.swell_data['charts']['wind']), @swell_data.swell_data['charts']['wind']%>
-        <h6 class="text-center">Wind</h6>
-      </li>
-    </ul>
+  <div class="small-12 small-centered columns">
+    <h6 class="div-bar">Snapshot of Conditions</h6>
+    <div class="content">
+      <ul class="small-block-grid-2 medium-block-grid-4 stats">
+        <li>
+            <h6 class="text-center">Wave Height</h6>
+            <h4 class="text-center"><%=@swell_data.wave_height%>ft</h4>
+        </li>
+        <li>
+          <h6 class="text-center">Primary Swell</h6>
+          <h4 class="text-center">
+            <%=@swell_data.primary_height%>ft @ <%=@swell_data.primary_period%>s
+            <a class="msw-swa msw-swa-<%=@swell_data.primary_direction%>"></a>
+          </h4>
+        </li>
+        <li>
+          <h6 class="text-center">Secondary Swell</h6>
+          <h4 class="text-center">
+            <%=@swell_data.secondary_height%>ft @ <%=@swell_data.secondary_period%>s
+            <a class="msw-swa msw-swa-<%=@swell_data.secondary_direction%>"></a>
+          </h4>
+        </li>
+        <li>
+          <h6 class="text-center">Wind</h6>
+          <h4 class="text-center">
+            <%=@swell_data.wind_speed%>mph
+            <a class="msw-swa msw-swa-<%=@swell_data.wind_direction%>"></a>
+          </h4>
+        </li>
+      </ul>
+      <ul class="small-block-grid-3 charts">
+        <li class="chart">
+          <%=link_to image_tag(@swell_data.swell_data['charts']['swell']), @swell_data.swell_data['charts']['swell']%>
+          <h6 class="text-center">Swell Height</h6>
+        </li>
+        <li class="chart">
+          <%=link_to image_tag(@swell_data.swell_data['charts']['period']), @swell_data.swell_data['charts']['period']%>
+          <h6 class="text-center">Swell Period</h6>
+        </li>
+        <li class="chart">
+          <%=link_to image_tag(@swell_data.swell_data['charts']['wind']), @swell_data.swell_data['charts']['wind']%>
+          <h6 class="text-center">Wind</h6>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
