@@ -18,7 +18,8 @@ function getLocation() {
       map.setCenter(initialLocation);
       marker = new google.maps.Marker( {position: initialLocation, map: map} );
       marker.setMap( map );
-    }, function() {
+    }, function(positionError) {
+      alert(positionError.message);
       handleNoGeolocation(browserSupportFlag);
     });
 
