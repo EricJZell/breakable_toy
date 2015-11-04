@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @entries = @user.entries.order(date: :desc)
     @photos = @user.photos
+    @relation = current_user.relation_to(@user) if current_user
     if @entries.any?
       @activity = get_activity(@entries)
     end
@@ -13,6 +14,9 @@ class UsersController < ApplicationController
       @users = User.search(params[:search]).page(params[:page]).per(5)
     else
       @users = User.page(params[:page]).per(5)
+    end
+    if current_user
+      @friends = current_user.friends
     end
     @friendship = Friendship.new
   end

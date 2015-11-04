@@ -23,6 +23,18 @@ class User < ActiveRecord::Base
     active_friends | passive_friends
   end
 
+  def relation_to(user)
+    if self == user
+      "This is your profile✓"
+    elsif friends.include?(user)
+      "Friends✓"
+    elsif pending_friends.include?(user) || requested_friendships.include?(user)
+      "Friend Request Pending"
+    else
+      nil
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
