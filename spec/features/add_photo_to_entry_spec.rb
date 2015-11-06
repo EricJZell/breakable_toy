@@ -20,7 +20,7 @@ feature 'user adds photo to entry', %{
     click_link entry.title
     root_photo = "#{Rails.root}/spec/support/images/example_photo.png"
     attach_file "Entry Photo", root_photo
-    find("#add-photo",:visible=>false).click
+    find("#add-photo", visible: false).click
     expect(page).to have_content('Photo successfully added')
     expect(page).to have_css("img[src*='example_photo.png']")
     expect(entry.photos[0].file_name.file.filename).to eq("example_photo.png")
@@ -31,7 +31,7 @@ feature 'user adds photo to entry', %{
     user = entry.user
     sign_in(user)
     click_link entry.title
-    find("#add-photo",:visible=>false).click
+    find("#add-photo", visible: false).click
     expect(page).to have_content('File name can\'t be blank')
   end
 end
