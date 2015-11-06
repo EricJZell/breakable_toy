@@ -6,3 +6,7 @@ if ($(".owl-carousel").length) {
     singleItem:true
   });
 }
+
+$('#photo_file_name').change(function() {
+  $('#add-photo').show();
+});
