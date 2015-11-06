@@ -84,7 +84,7 @@
         <div>
           <%= image_tag(photo.file_name) %>
           <% if current_user == @user || current_user.admin? %>
-            <%= link_to("Delete Photo", entry_photo_path(@entry, photo), method: :delete) %>
+            <%= link_to("Delete Photo", entry_photo_path(@entry, photo), method: :delete, class:"button small warning") %>
           <% end %>
         </div>
       <% end %>
@@ -93,7 +93,7 @@
       <%= form_for [@entry, @photo] do |f| %>
         <%= f.label :file_name, "Entry Photos" %>
         <%= f.file_field :file_name %><br />
-        <%= f.submit "Add Photo", class: "button" %>
+        <%= f.submit "Add Photo", class: "button", id:"add-photo", style:"display: none;" %>
       <% end %>
     <% end %>
   </div>

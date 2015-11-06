@@ -19,7 +19,7 @@ feature 'user adds photo to entry', %{
     click_link entry.title
     root_photo = "#{Rails.root}/spec/support/images/example_photo.png"
     attach_file "Entry Photo", root_photo
-    click_button 'Add Photo'
+    find("#add-photo", visible: false).click
     expect(page).to have_css("img[src*='example_photo.png']")
     click_link 'Delete Photo'
     expect(page).to have_content('Photo successfully deleted')
@@ -33,7 +33,7 @@ feature 'user adds photo to entry', %{
     click_link entry.title
     root_photo = "#{Rails.root}/spec/support/images/example_photo.png"
     attach_file "Entry Photo", root_photo
-    click_button 'Add Photo'
+    find("#add-photo", visible: false).click
     click_link('Sign Out')
     create_friendship(user, user2)
     visit entry_path(entry)
