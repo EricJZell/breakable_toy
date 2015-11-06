@@ -81,7 +81,12 @@
     <h6 class="div-bar">Photos:</h6>
     <div class="owl-carousel content">
       <% @photos.each do |photo| %>
-        <div><%= image_tag(photo.file_name) %></div>
+        <div>
+          <%= image_tag(photo.file_name) %>
+          <% if current_user == @user || current_user.admin? %>
+            <%= link_to("Delete Photo", entry_photo_path(@entry, photo), method: :delete) %>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <% if current_user == @user %>
