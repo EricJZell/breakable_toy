@@ -13,6 +13,4 @@ test:
 
 production:
   <<: *default
-  database: breakable_toy_production
-  username: breakable_toy
-  password: <%= ENV['BREAKABLE_TOY_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
