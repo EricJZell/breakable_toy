@@ -29,14 +29,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?" + <%=ENV['GOOGLE_MAPS_API_KEY']%>></script>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
-  <div class="row">
-    <div class="small-10 small-centered columns">
-      <ul class="inline-list">
-        <li><%=link_to "Home", root_path %></li>
-        <li> | </li>
-        <li><%= link_to "About", "https://github.com/EricJZell/swell_journal" %></li>
-      </ul>
-    </div>
-  </div>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
