@@ -18,7 +18,7 @@ feature 'user creates journal entry', %{
   scenario 'authenticated user creates entry' do
     sign_in(user)
     click_link 'New Journal Entry'
-    select '2011', from: 'entry_date_1i'
+    select '2015', from: 'entry_date_1i'
     select 'October', from: 'entry_date_2i'
     select '15', from: 'entry_date_3i'
     fill_in 'Title', with: 'Great time here'

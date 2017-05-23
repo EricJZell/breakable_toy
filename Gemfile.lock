@@ -55,6 +55,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    chchchanges (0.1.1)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -368,6 +369,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
+  chchchanges
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner
@@ -398,5 +400,8 @@ DEPENDENCIES
   valid_attribute
   web-console (~> 2.0)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.6
+   1.15.0

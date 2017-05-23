@@ -19,6 +19,7 @@ gem 'json'
 gem 'owlcarousel-rails'
 gem 'httparty'
 gem 'kaminari'
+gem 'chchchanges'
 
 
 group :development, :test do
